@@ -1,5 +1,5 @@
 /*
-COLLEGE DEPARTMENT HOMEPAGE JAVASCRIPT
+INDUSTRIAL TECHNOLOGGY HOMEPAGE JAVASCRIPT
 =====================================
 
 This JavaScript file handles all interactive features and animations for the homepage.
