@@ -193,8 +193,10 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(rgba(19, 137, 15, 0.7), rgba(18, 44, 130, 0.7)), 
-                url('image\ source/slsubg.png') center/cover no-repeat;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Purple gradient */
+    color: white;
+    text-align: center;
+    overflow: hidden;
 }
 
 /* Animated background grid */
