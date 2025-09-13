@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Computer Science</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+<body>
+    <!-- 
+    COLLEGE DEPARTMENT HOMEPAGE
+    ============================
+    
+    This HTML file creates a modern, responsive homepage for a college department.
+    
+    Structure:
+    - Header with two logos and responsive navigation menu
+    - Hero section with animated title and call-to-action buttons
+    - About section with feature cards
+    - Programs section showcasing academic offerings
+    - Faculty section with profile cards
+    - Research areas section
+    - Contact section with form and information
+    - Footer
+    
+    Features:
+    - Semantic HTML5 structure for accessibility
+    - Responsive design that works on all devices
+    - Scroll-triggered animations (handled by JavaScript)
+    - Interactive navigation menu
+    - Contact form with validation
+    -->
+
+    <!-- HEADER SECTION -->
+    <!-- Fixed header with logos and navigation menu -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Two logos as requested -->
+            <div class="logos">
+                <!-- University Logo (Blue) -->
+                <img src="https://via.placeholder.com/80x80/1e40af/ffffff?text=UNIV" 
+                     alt="University Logo" 
+                     class="logo">
+                <!-- Department Logo (Red) -->
+                <img src="https://via.placeholder.com/80x80/dc2626/ffffff?text=CS" 
+                     alt="Department Logo" 
+                     class="logo">
+            </div>
+            
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <nav class="nav" id="navigation" role="navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#faculty">Faculty</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <!-- Full-screen hero section with animated content -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <!-- Animated title (typing effect added via JavaScript) -->
+                <h1 class="hero-title fade-in-up">Department of Computer Science</h1>
+                <!-- Subtitle with fade-in animation -->
+                <p class="hero-subtitle fade-in-up">Shaping the Future Through Innovation and Technology</p>
+                <!-- Call-to-action buttons -->
+                <div class="hero-buttons fade-in-up">
+                    <button class="btn primary">Explore Programs</button>
+                    <button class="btn secondary">Meet Faculty</button>
+                </div>
+            </div>
+            <!-- Animated background grid -->
+            <div class="hero-bg"></div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <!-- Department overview with feature cards -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title animate-text">About Our Department</h2>
+                <div class="about-grid">
+                    <!-- Feature Card 1: Education -->
+                    <div class="about-card animate-text">
+                        <h3>Excellence in Education</h3>
+                        <p>We provide world-class computer science education that prepares students for successful careers in technology, research, and innovation.</p>
+                    </div>
+                    <!-- Feature Card 2: Research -->
+                    <div class="about-card animate-text">
+                        <h3>Cutting-Edge Research</h3>
+                        <p>Our faculty and students conduct groundbreaking research in artificial intelligence, cybersecurity, data science, and emerging technologies.</p>
+                    </div>
+                    <!-- Feature Card 3: Industry -->
+                    <div class="about-card animate-text">
+                        <h3>Industry Connections</h3>
+                        <p>Strong partnerships with leading tech companies provide internship opportunities and career pathways for our graduates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS SECTION -->
+        <!-- Academic programs with detailed information -->
+        <section id="programs" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-text">Academic Programs</h2>
+                <div class="programs-grid">
+                    <!-- Bachelor's Program -->
+                    <div class="program-card animate-text">
+                        <h3>Bachelor of Science</h3>
+                        <p>Comprehensive undergraduate program covering fundamental computer science concepts and practical applications.</p>
+                        <ul>
+                            <li>Software Engineering</li>
+                            <li>Data Structures & Algorithms</li>
+                            <li>Computer Systems</li>
+                            <li>Machine Learning</li>
+                        </ul>
+                    </div>
+                    <!-- Master's Program -->
+                    <div class="program-card animate-text">
+                        <h3>Master of Science</h3>
+                        <p>Advanced graduate program for specialized knowledge in cutting-edge areas of computer science.</p>
+                        <ul>
+                            <li>Artificial Intelligence</li>
+                            <li>Cybersecurity</li>
+                            <li>Human-Computer Interaction</li>
+                            <li>Distributed Systems</li>
+                        </ul>
+                    </div>
+                    <!-- PhD Program -->
+                    <div class="program-card animate-text">
+                        <h3>Ph.D. Program</h3>
+                        <p>Research-focused doctoral program for students pursuing careers in academia and advanced research.</p>
+                        <ul>
+                            <li>Original Research</li>
+                            <li>Faculty Mentorship</li>
+                            <li>Conference Publications</li>
+                            <li>Teaching Experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FACULTY SECTION -->
+        <!-- Faculty profiles with images and descriptions -->
+        <section id="faculty" class="section">
+            <div class="container">
+                <h2 class="section-title animate-text">Distinguished Faculty</h2>
+                <div class="faculty-grid">
+                    <!-- Faculty Member 1 -->
+                    <div class="faculty-card animate-text">
+                        <div class="faculty-image" aria-label="Dr. Sarah Johnson"></div>
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="title">Department Chair & AI Researcher</p>
+                        <p>Leading expert in machine learning and neural networks with over 100 published papers.</p>
+                    </div>
+                    <!-- Faculty Member 2 -->
+                    <div class="faculty-card animate-text">
+                        <div class="faculty-image" aria-label="Prof. Michael Chen"></div>
+                        <h3>Prof. Michael Chen</h3>
+                        <p class="title">Cybersecurity Specialist</p>
+                        <p>Former industry professional with expertise in network security and cryptography.</p>
+                    </div>
+                    <!-- Faculty Member 3 -->
+                    <div class="faculty-card animate-text">
+                        <div class="faculty-image" aria-label="Dr. Emily Rodriguez"></div>
+                        <h3>Dr. Emily Rodriguez</h3>
+                        <p class="title">Software Engineering Professor</p>
+                        <p>Pioneering researcher in software architecture and distributed systems design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH SECTION -->
+        <!-- Research areas and focus -->
+        <section id="research" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-text">Research Areas</h2>
+                <div class="research-areas">
+                    <!-- Research Area 1 -->
+                    <div class="research-item animate-text">
+                        <h3>Artificial Intelligence & Machine Learning</h3>
+                        <p>Developing next-generation AI systems for healthcare, autonomous vehicles, and scientific discovery.</p>
+                    </div>
+                    <!-- Research Area 2 -->
+                    <div class="research-item animate-text">
+                        <h3>Cybersecurity & Privacy</h3>
+                        <p>Creating robust security solutions to protect digital infrastructure and personal data.</p>
+                    </div>
+                    <!-- Research Area 3 -->
+                    <div class="research-item animate-text">
+                        <h3>Data Science & Analytics</h3>
+                        <p>Extracting insights from big data to solve complex real-world problems across industries.</p>
+                    </div>
+                    <!-- Research Area 4 -->
+                    <div class="research-item animate-text">
+                        <h3>Human-Computer Interaction</h3>
+                        <p>Designing intuitive interfaces and improving the interaction between humans and technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <!-- Contact information and form -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title animate-text">Contact Us</h2>
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info animate-text">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <strong>Address:</strong>
+                            <p>123 University Avenue<br>Campus Building, Room 301<br>City, State 12345</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong>
+                            <p>(555) 123-4567</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <p>info@cs.university.edu</p>
+                        </div>
+                    </div>
+                    <!-- Contact Form -->
+                    <div class="contact-form animate-text">
+                        <h3>Send us a message</h3>
+                        <form id="contactForm" novalidate>
+                            <input type="text" 
+                                   placeholder="Your Name" 
+                                   required 
+                                   aria-label="Your full name">
+                            <input type="email" 
+                                   placeholder="Your Email" 
+                                   required 
+                                   aria-label="Your email address">
+                            <textarea placeholder="Your Message" 
+                                      rows="5" 
+                                      required 
+                                      aria-label="Your message"></textarea>
+                            <button type="submit" class="btn primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 University Computer Science Department. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="link.js"></script>
+</body>
+</html>
