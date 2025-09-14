@@ -1,5 +1,5 @@
 # CIT-homepage-website
-for school purposes only
+for school purposes only.
 
+feel free to contribute and improve the code
 
-hello please suggest nice additions for change
