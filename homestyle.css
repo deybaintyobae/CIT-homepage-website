@@ -115,6 +115,20 @@ HEADER STYLES
     font-weight: 500;
 }
 
+/* Logo container */
+.logos {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Logo text styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 /* ===========================================
 MOBILE MENU TOGGLE
    =========================================== */
@@ -527,20 +541,6 @@ FOOTER
     color: #fff;
     text-align: center;
     padding: 40px 0;
-}
-
-/* Logo container */
-.logos {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-/* Logo text styling */
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
 }
 
 
