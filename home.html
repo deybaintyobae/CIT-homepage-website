@@ -9,10 +9,10 @@
 </head>
 <body>
     <!-- 
-    COLLEGE DEPARTMENT HOMEPAGE
+    SLSU CIT COLLEGE DEPARTMENT HOMEPAGE
     ============================
     
-    This HTML file creates a modern, responsive homepage for a college department.
+    This HTML file creates a modern, responsive homepage for our CIT college department.
     
     Structure:
     - Header with two logos and responsive navigation menu
@@ -36,19 +36,19 @@
     <!-- Fixed header with logos and navigation menu -->
     <header class="header">
         <div class="header-container">
-            <!-- Two logos as requested -->
+            <!-- Two logos -->
             <div class="logos">
-                <!-- University Logo (Blue) -->
+                <!-- SLSU University Logo -->
                 <img src="image source/slsulogo.png" 
-                     alt="University Logo" 
-                     class="logo">
-                <!-- Department Logo (Red) -->
+                    alt="SLSU Logo" 
+                    class="logo">
+                <!-- CIT Department Logo -->
                 <img src="image source/industrial technology.png" 
-                     alt="Department Logo" 
-                     class="logo">
+                    alt="CIT Logo" 
+                    class="logo">
             </div>
             
-            <!-- Hamburger Menu Button (Mobile) -->
+            <!-- Menu Button -->
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
@@ -61,9 +61,9 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#programs">Programs</a></li>
-                    <li><a href="#faculty">Faculty</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faculty">Coders</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -75,9 +75,9 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <!-- Animated title (typing effect added via JavaScript) -->
-                <h1 class="hero-title fade-in-up">SLSU Main Campus College of Industrial Technology</h1>
+                <h1 class="hero-title fade-in-up">SLSU College of Industrial Technology</h1>
                 <!-- Subtitle with fade-in animation -->
-                <p class="hero-subtitle fade-in-up">Shaping the Future Through Innovation and Technology</p>
+                <p class="hero-subtitle fade-in-up">We aspire to be a leading innovative, high-performing college that develops technologically proficient graduates</p>
                 <!-- Call-to-action buttons -->
                 <div class="hero-buttons fade-in-up">
                     <button class="btn primary">Explore Programs</button>
@@ -140,28 +140,41 @@
             <div class="container">
                 <h2 class="section-title animate-text">Distinguished Members</h2>
                 <div class="faculty-grid">
-                     <!-- Faculty Member 1 -->
+                    <!-- Faculty Member 1 -->
                     <div class="faculty-card animate-text">
                         <img src="image source/Rondola2.jpg" 
-                             alt="Dave Andrew Rondola" 
-                             class="faculty-image">
+                            alt="Dave Andrew Rondola" 
+                            class="faculty-image">
                         <h3>Dave Andrew Rondola</h3>
                         <p class="title">1st Year Computer Technology Student</p>
                         <p>Leading expert in machine learning and neural networks with over 100 published papers.</p>
                     </div>
                     <!-- Faculty Member 2 -->
                     <div class="faculty-card animate-text">
-                        <div class="faculty-image" aria-label="Kristine Kaye Miranda"></div>
+                        <img src="image source/miranda2.png" 
+                            alt="Kristine Kaye Miranda" 
+                            class="faculty-image">
                         <h3>Kristine Kaye Miranda</h3>
                         <p class="title">Best Reporter</p>
                         <p>The best reporter in our team.</p>
                     </div>
                     <!-- Faculty Member 3 -->
                     <div class="faculty-card animate-text">
-                        <div class="faculty-image" aria-label="John Paul Melivo"></div>
+                        <img src="image source/Melivo2.jpg" 
+                            alt="John Paul Melivo" 
+                            class="faculty-image">
                         <h3>John Paul Melivo</h3>
                         <p class="title">Support Programmer</p>
                         <p>The guy with a glasses.</p>
+                    </div>
+                    <!-- Faculty Member 3 -->
+                    <div class="faculty-card animate-text">
+                        <img src="image source/Melivo2.jpg" 
+                            alt="Leoj Nilooban" 
+                            class="faculty-image">
+                        <h3>Leoj Nilooban</h3>
+                        <p class="title">CPT Student</p>
+                        <p>Dang.</p>
                     </div>
                 </div>
             </div>
@@ -224,17 +237,17 @@
                         <h3>Send us a message</h3>
                         <form id="contactForm" novalidate>
                             <input type="text" 
-                                   placeholder="Your Name" 
-                                   required 
-                                   aria-label="Your full name">
+                                placeholder="Your Name" 
+                                required 
+                                aria-label="Your full name">
                             <input type="email" 
-                                   placeholder="Your Email" 
-                                   required 
-                                   aria-label="Your email address">
+                                placeholder="Your Email" 
+                                required 
+                                aria-label="Your email address">
                             <textarea placeholder="Your Message" 
-                                      rows="5" 
-                                      required 
-                                      aria-label="Your message"></textarea>
+                                    rows="5" 
+                                    required 
+                                    aria-label="Your message"></textarea>
                             <button type="submit" class="btn primary">Send Message</button>
                         </form>
                     </div>

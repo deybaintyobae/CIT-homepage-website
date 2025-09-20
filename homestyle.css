@@ -28,7 +28,7 @@ Typography:
 */
 
 /* ===========================================
-   RESET AND BASE STYLES
+RESET AND BASE STYLES
    =========================================== */
 
 /* CSS Reset for consistent cross-browser styling */
@@ -54,7 +54,7 @@ body {
 }
 
 /* ===========================================
-   HEADER STYLES
+HEADER STYLES
    =========================================== */
 
 /* Fixed header with glassmorphism effect */
@@ -141,7 +141,7 @@ body {
 }
 
 /* ===========================================
-   NAVIGATION STYLES
+NAVIGATION STYLES
    =========================================== */
 
 /* Desktop navigation */
@@ -183,7 +183,7 @@ body {
 }
 
 /* ===========================================
-   HERO SECTION
+HERO SECTION
    =========================================== */
 
 /* Full-screen hero section */
@@ -193,7 +193,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    background: linear-gradient(rgba(15, 33, 90, 0.4), rgba(0,0,0,0.4)), 
                 url('image\ source/slsubg.png') center/cover no-repeat;
     color: white;
     text-align: center;
@@ -243,7 +243,7 @@ body {
 }
 
 /* ===========================================
-   BUTTON STYLES
+BUTTON STYLES
    =========================================== */
 
 /* Base button styling */
@@ -285,7 +285,7 @@ body {
 }
 
 /* ===========================================
-   SECTION LAYOUTS
+SECTION LAYOUTS
    =========================================== */
 
 /* Base section styling */
@@ -308,7 +308,7 @@ body {
 }
 
 /* ===========================================
-   ABOUT SECTION
+ABOUT SECTION
    =========================================== */
 
 /* Grid layout for about cards */
@@ -340,7 +340,7 @@ body {
 }
 
 /* ===========================================
-   PROGRAMS SECTION
+PROGRAMS SECTION
    =========================================== */
 
 /* Grid for program cards */
@@ -381,7 +381,7 @@ body {
 }
 
 /* ===========================================
-   FACULTY SECTION
+FACULTY SECTION
    =========================================== */
 
 /* Faculty grid layout */
@@ -428,7 +428,7 @@ body {
 }
 
 /* ===========================================
-   RESEARCH SECTION
+RESEARCH SECTION
    =========================================== */
 
 /* Research areas grid */
@@ -459,7 +459,7 @@ body {
 }
 
 /* ===========================================
-   CONTACT SECTION
+CONTACT SECTION
    =========================================== */
 
 /* Contact section grid layout */
@@ -506,18 +506,18 @@ body {
 }
 
 /* ===========================================
-   FOOTER
+FOOTER
    =========================================== */
 
 .footer {
-    background: #1f2937;
+    background: #1e40af;
     color: #fff;
     text-align: center;
     padding: 40px 0;
 }
 
 /* ===========================================
-   ANIMATION CLASSES
+ANIMATION CLASSES
    =========================================== */
 
 /* Initial fade-in animation for hero elements */
@@ -557,7 +557,7 @@ body {
 }
 
 /* ===========================================
-   RESPONSIVE DESIGN
+RESPONSIVE DESIGN
    =========================================== */
 
 /* Tablet and Mobile Styles (768px and below) */
@@ -663,7 +663,7 @@ body {
 }
 
 /* ===========================================
-   ACCESSIBILITY ENHANCEMENTS
+ACCESSIBILITY ENHANCEMENTS
    =========================================== */
 
 /* Focus styles for keyboard navigation */
