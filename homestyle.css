@@ -504,6 +504,13 @@ PHOTO SHOWCASE SECTION
     margin-bottom: 20px;
 }
 
+.gallery-subtitle {
+    text-align: center;           /* ← Already centered */
+    color: white !important;     /* ← overide White text color */
+    margin-left: auto;            /* ← Centers the element */
+    margin-right: auto;           /* ← Centers the element */
+}
+
 /* Background decoration */
 .photo-bg-decoration {
     position: absolute;
