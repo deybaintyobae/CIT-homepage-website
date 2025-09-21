@@ -492,9 +492,16 @@ PHOTO SHOWCASE SECTION
 /* Photo showcase section with dark background */
 .photo-showcase {
     padding: 120px 0;
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1a4d2e 100%);
+    background: linear-gradient(135deg, #1e40af, #1a4d2e);
     position: relative;
     overflow: hidden;
+}
+
+/* Gallery section title styling - White color */
+.photo-showcase .section-title {
+    color: white !important;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
 }
 
 /* Background decoration */

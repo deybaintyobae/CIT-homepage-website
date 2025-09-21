@@ -68,6 +68,7 @@
                     <li><a href="#programs">Programs</a></li>
                     <li><a href="#faculty">Faculty</a></li>
                     <li><a href="#research">Facilities</a></li>
+                    <li><a href="#gallery">Featured</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </nav>
@@ -272,43 +273,88 @@
         </section>
 
         <!-- PHOTO GALLERY SECTION -->
-        <!-- Showcase section with background images -->
+        <!-- Campus showcase with customizable images -->
         <section id="gallery" class="photo-showcase">
+            
             <div class="container">
-                <h2 class="section-title animate-text" style="color: white;">Campus Life & Moments</h2>
+                <h2 class="section-title animate-text">Campus Life</h2>
+                
                 <div class="photo-grid">
-                    <!-- Photo Card 1 -->
-                    <div class="photo-card animate-text">
+                    <!-- Featured Photo 1: Laboratory -->
+                    <div class="photo-card animate-text" data-category="facilities">
+                        <div class="photo-image-container">
+                            <!-- Replace src with your actual lab photo -->
+                            <img src="image source/lab.png" alt="Computer Laboratory" class="photo-image" 
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="photo-placeholder lab-placeholder">
+                                <div class="placeholder-icon">💻</div>
+                                <span>Add Lab Photo</span>
+                            </div>
+                        </div>
                         <div class="photo-overlay">
-                            <h3>State-of-the-Art Laboratories</h3>
-                            <p>Modern facilities equipped with cutting-edge technology for hands-on learning experiences.</p>
+                            <div class="photo-category">Facilities</div>
+                            <h3>Computer Laboratory</h3>
+                            <p>Modern computing facilities equipped with the latest technology for hands-on learning and research projects.</p>
                         </div>
                     </div>
-                    <!-- Photo Card 2 -->
-                    <div class="photo-card animate-text">
+
+                    <!-- Featured Photo 2: Students -->
+                    <div class="photo-card animate-text" data-category="student-life">
+                        <div class="photo-image-container">
+                            <!-- Replace src with your students photo -->
+                            <img src="image source/elab.png" alt="Students Collaborating" class="photo-image" 
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="photo-placeholder students-placeholder">
+                                <div class="placeholder-icon">👥</div>
+                                <span>Add Students Photo</span>
+                            </div>
+                        </div>
                         <div class="photo-overlay">
+                            <div class="photo-category">Student Life</div>
                             <h3>Collaborative Learning</h3>
-                            <p>Students working together on innovative projects and research initiatives.</p>
+                            <p>Students working together on innovative projects, fostering teamwork and creative problem-solving skills.</p>
                         </div>
                     </div>
-                    <!-- Photo Card 3 -->
-                    <div class="photo-card animate-text">
+
+                    <!-- Featured Photo 3: Campus Events -->
+                    <div class="photo-card animate-text" data-category="events">
+                        <div class="photo-image-container">
+                            <!-- Replace src with your events photo -->
+                            <img src="image source/exelence.png" alt="Campus Events" class="photo-image" 
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="photo-placeholder events-placeholder">
+                                <div class="placeholder-icon">🎓</div>
+                                <span>Add Events Photo</span>
+                            </div>
+                        </div>
                         <div class="photo-overlay">
-                            <h3>Campus Events</h3>
-                            <p>Vibrant student life with academic conferences, workshops, and cultural activities.</p>
+                            <div class="photo-category">Events</div>
+                            <h3>Academic Excellence</h3>
+                            <p>Celebrating achievements through seminars, workshops, and recognition ceremonies that inspire growth.</p>
                         </div>
                     </div>
-                    <!-- Photo Card 4 -->
-                    <div class="photo-card animate-text">
+
+                    <!-- Featured Photo 4: Innovation -->
+                    <div class="photo-card animate-text" data-category="innovation">
+                        <div class="photo-image-container">
+                            <!-- Replace src with your innovation/tech photo -->
+                            <img src="image source/innovation.png" alt="Technology Innovation" class="photo-image" 
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="photo-placeholder innovation-placeholder">
+                                <div class="placeholder-icon">🚀</div>
+                                <span>Add Innovation Photo</span>
+                            </div>
+                        </div>
                         <div class="photo-overlay">
-                            <h3>Innovation Hub</h3>
-                            <p>Where creativity meets technology - fostering the next generation of tech leaders.</p>
+                            <div class="photo-category">Innovation</div>
+                            <h3>Future Technology</h3>
+                            <p>Exploring cutting-edge technologies and preparing students for tomorrow's digital challenges.</p>
                         </div>
                     </div>
                 </div>
+
+
             </div>
-            <!-- Decorative background elements -->
-            <div class="photo-bg-decoration"></div>
         </section>
     </main>
 
@@ -366,6 +412,6 @@
     </footer>
 
     <!-- Link to external JavaScript file -->
-    <script src="homeanimation.js"></script>
+    <script src="homefunctions.js"></script>
 </body>
 </html>
