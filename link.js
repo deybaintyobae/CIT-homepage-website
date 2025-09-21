@@ -182,6 +182,68 @@ function initializeHeaderEffects() {
 }
 
 // ===========================================
+// HERO BUTTON FUNCTIONALITY
+// ===========================================
+
+/**
+ * Initialize hero button click handlers
+ * Makes the Call-to-Action buttons functional with smooth navigation
+ */
+function initializeHeroButtons() {
+    const exploreBtn = document.querySelector('.hero-buttons .btn.primary');
+    const facultyBtn = document.querySelector('.hero-buttons .btn.secondary');
+    
+    if (!exploreBtn || !facultyBtn) {
+        console.warn('Hero buttons not found');
+        return;
+    }
+
+    // "Explore Programs" button - navigate to programs section
+    exploreBtn.addEventListener('click', function() {
+        const programsSection = document.querySelector('#programs');
+        if (programsSection) {
+            const headerOffset = 80;
+            const elementPosition = programsSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        }
+    });
+
+    // "Meet the Faculty" button - navigate to faculty section
+    facultyBtn.addEventListener('click', function() {
+        const facultySection = document.querySelector('#faculty');
+        if (facultySection) {
+            const headerOffset = 80;
+            const elementPosition = facultySection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        }
+    });
+
+    console.log('Hero buttons initialized successfully');
+}
+
+// ===========================================
 // PARALLAX EFFECTS
 // ===========================================
 
@@ -571,6 +633,7 @@ function initializeApplication() {
         initializeScrollAnimations();
         initializeSmoothScrolling();
         initializeHeaderEffects();
+        initializeHeroButtons();
         
         // Visual enhancements
         initializeParallaxEffects();
