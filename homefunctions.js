@@ -469,7 +469,7 @@ function isValidEmail(email) {
  * Show error for form field
  */
 function showFieldError(field, message) {
-    field.style.borderColor = '#dc2626';
+    field.style.borderColor = '#1e40af';
     field.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.1)';
     
     // Remove existing error message
@@ -481,7 +481,7 @@ function showFieldError(field, message) {
     // Add error message
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
-    errorDiv.style.color = '#dc2626';
+    errorDiv.style.color = '#1e40af';
     errorDiv.style.fontSize = '0.875rem';
     errorDiv.style.marginTop = '5px';
     errorDiv.textContent = message;
