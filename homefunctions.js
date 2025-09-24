@@ -708,7 +708,7 @@ window.addEventListener('unhandledrejection', function(e) {
 // Export functions for testing (if using modules)
 // export { initializeApplication, initializeMobileMenu, initializeScrollAnimations };
 
- let slideIndex = 1;
+let slideIndex = 1;
         let slideInterval;
 
         // Initialize slideshow
