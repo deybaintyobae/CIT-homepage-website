@@ -707,3 +707,79 @@ window.addEventListener('unhandledrejection', function(e) {
 
 // Export functions for testing (if using modules)
 // export { initializeApplication, initializeMobileMenu, initializeScrollAnimations };
+
+ let slideIndex = 1;
+        let slideInterval;
+
+        // Initialize slideshow
+        function initSlideshow() {
+            showSlide(slideIndex);
+            startAutoSlide();
+        }
+
+        // Start automatic sliding
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 3000); // Change slide every 3 seconds
+        }
+
+        // Stop automatic sliding
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        // Restart automatic sliding
+        function restartAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        // Change slide by n
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+            restartAutoSlide(); // Reset timer when manually changing slides
+        }
+
+        // Go to specific slide
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+            restartAutoSlide(); // Reset timer when clicking indicators
+        }
+
+        // Display slide
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+            const indicators = document.getElementsByClassName('indicator');
+            
+            // Wrap around if necessary
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            // Remove active class from all indicators
+            for (let i = 0; i < indicators.length; i++) {
+                indicators[i].classList.remove('active');
+            }
+            
+            // Show current slide and indicator
+            slides[slideIndex - 1].classList.add('active');
+            indicators[slideIndex - 1].classList.add('active');
+        }
+
+        // Pause on hover
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        
+        slideshowContainer.addEventListener('mouseenter', stopAutoSlide);
+        slideshowContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initSlideshow);

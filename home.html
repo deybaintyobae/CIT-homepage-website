@@ -94,6 +94,72 @@
             <div class="hero-bg"></div>
         </section>
 
+        <!-- ANNOUNCEMENTS SLIDESHOW SECTION -->
+        <section id="announcements" class="announcements-section">
+            <div class="container">
+                <h2 class="announcements-title">📢 Latest Announcements</h2>
+                
+                <div class="slideshow-container">
+                    <!-- Slide 1 -->
+                    <div class="slide active">
+                        <div class="slide-image">
+                            <img src="images/enrollment-announcement.jpg" 
+                                 alt="Enrollment Announcement" 
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect fill=\'%231e40af\' width=\'800\' height=\'400\'/%3E%3Ctext x=\'400\' y=\'200\' fill=\'white\' text-anchor=\'middle\' font-size=\'60\' font-family=\'Arial\'%3E🎓%3C/text%3E%3Ctext x=\'400\' y=\'260\' fill=\'white\' text-anchor=\'middle\' font-size=\'20\' font-family=\'Arial\'%3EEnrollment 2025%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-badge">New</div>
+                            <h3>Enrollment for 2nd Semester 2025</h3>
+                            <p>Registration is now open for the 2nd semester. Visit the registrar's office or apply online through our student portal.</p>
+                            <span class="slide-date">January 15, 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="images/winners-announcement.jpg" 
+                                 alt="Competition Winners" 
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect fill=\'%23f59e0b\' width=\'800\' height=\'400\'/%3E%3Ctext x=\'400\' y=\'200\' fill=\'white\' text-anchor=\'middle\' font-size=\'60\' font-family=\'Arial\'%3E🏆%3C/text%3E%3Ctext x=\'400\' y=\'260\' fill=\'white\' text-anchor=\'middle\' font-size=\'20\' font-family=\'Arial\'%3EChampions 2025%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-badge">Achievement</div>
+                            <h3>IT Competition Winners</h3>
+                            <p>Congratulations to our Computer Technology students for winning 1st place in the Regional Programming Contest!</p>
+                            <span class="slide-date">January 10, 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="images/lab-upgrade-announcement.jpg" 
+                                 alt="Laboratory Upgrade" 
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect fill=\'%2310b981\' width=\'800\' height=\'400\'/%3E%3Ctext x=\'400\' y=\'200\' fill=\'white\' text-anchor=\'middle\' font-size=\'60\' font-family=\'Arial\'%3E🔬%3C/text%3E%3Ctext x=\'400\' y=\'260\' fill=\'white\' text-anchor=\'middle\' font-size=\'20\' font-family=\'Arial\'%3ENew Equipment%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide-content">
+                            <div class="slide-badge">Upgrade</div>
+                            <h3>New Laboratory Equipment</h3>
+                            <p>Our CPT Lab has been upgraded with state-of-the-art computers and software for enhanced learning experience.</p>
+                            <span class="slide-date">January 8, 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Navigation arrows -->
+                    <button class="slide-nav prev" onclick="changeSlide(-1)" aria-label="Previous announcement">❮</button>
+                    <button class="slide-nav next" onclick="changeSlide(1)" aria-label="Next announcement">❯</button>
+                </div>
+
+                <!-- Slide indicators -->
+                <div class="slide-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ABOUT SECTION -->
         <!-- Department overview with feature cards -->
         <section id="about" class="section">
