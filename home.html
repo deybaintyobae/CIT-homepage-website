@@ -1,126 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLSU CIT Department Website</title>
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="homestyle.css">
+    <!-- Basic HTML document setup -->
+    <meta charset="UTF-8"> <!-- Character encoding for proper text display -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design on mobile -->
+    <title>SLSU CIT Department Website</title> <!-- Page title shown in browser tab -->
+    <link rel="stylesheet" href="homestyle.css"> <!-- Link to external CSS styling file -->
 </head>
 <body>
-    <!-- 
-    SLSU CIT COLLEGE DEPARTMENT HOMEPAGE
-    ============================
-    
-    This HTML file creates a modern, responsive homepage for our CIT college department.
-    
-    Structure:
-    - Header with two logos and responsive navigation menu
-    - Hero section with animated title and call-to-action buttons
-    - About section with feature cards
-    - Programs section showcasing academic offerings
-    - Group 5 section with profile cards
-    - Research areas section
-    - Contact section with form and information
-    - Footer
-    
-    Features:
-    - Semantic HTML5 structure for accessibility
-    - Responsive design that works on all devices
-    - Scroll-triggered animations (handled by JavaScript)
-    - Interactive navigation menu
-    - Contact form with validation
-    -->
-
-    <!-- HEADER SECTION -->
-    <!-- Fixed header with logos and navigation menu -->
+    <!-- HEADER SECTION - Top navigation bar that stays fixed while scrolling -->
     <header class="header">
-        <div class="header-container">
-            <!-- Two logos -->
+        <div class="header-container"> <!-- Container to center header content -->
+            
+            <!-- LOGO SECTION - University and department logos with text -->
             <div class="logos">
-                <!-- SLSU University Logo -->
-                <img src="image source/slsulogo.png" 
-                    alt="SLSU Logo" 
-                    class="logo">
-                <!-- CIT Department Logo -->
-                <img src="image source/industrial technology.png" 
-                    alt="CIT Logo" 
-                    class="logo">
-                    <!--Text beside the logo -->
-                <div class="logo-text">
-                    <span class="logo-title">Southern Luzon State University</span>
-                    <span class="logo-subtitle">College of Industrial Technology</span>
+                <img src="image source/slsulogo.png" alt="SLSU Logo" class="logo"> <!-- University logo -->
+                <img src="image source/industrial technology.png" alt="CIT Logo" class="logo"> <!-- Department logo -->
+                <div class="logo-text"> <!-- Text beside the logos -->
+                    <span class="logo-title">Southern Luzon State University</span> <!-- Main title -->
+                    <span class="logo-subtitle">College of Industrial Technology</span> <!-- Subtitle -->
                 </div>
             </div>
             
-            <!-- Menu Button -->
+            <!-- MOBILE MENU BUTTON - Hamburger menu for small screens -->
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span> <!-- Top hamburger line -->
+                <span></span> <!-- Middle hamburger line -->
+                <span></span> <!-- Bottom hamburger line -->
             </button>
             
-            <!-- Navigation Menu -->
+            <!-- NAVIGATION MENU - Main website navigation links -->
             <nav class="nav" id="navigation" role="navigation">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#programs">Programs</a></li>
-                    <li><a href="#faculty">Faculty</a></li>
-                    <li><a href="#research">Facilities</a></li>
-                    <li><a href="#gallery">Featured</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#home">Home</a></li> <!-- Link to hero section -->
+                    <li><a href="#announcements">Announcements</a></li> <!-- New announcements link -->
+                    <li><a href="#about">About</a></li> <!-- Link to about section -->
+                    <li><a href="#programs">Programs</a></li> <!-- Link to programs section -->
+                    <li><a href="#faculty">Faculty</a></li> <!-- Link to faculty section -->
+                    <li><a href="#research">Facilities</a></li> <!-- Link to facilities section -->
+                    <li><a href="#gallery">Featured</a></li> <!-- Link to gallery section -->
+                    <li><a href="#contact">Contact Us</a></li> <!-- Link to contact section -->
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
-        <!-- Full-screen hero section with animated content -->
+        <!-- HERO SECTION - Main banner with title and call-to-action buttons -->
         <section id="home" class="hero">
-            <div class="hero-content">
-                <!-- Animated title (typing effect added via JavaScript) -->
-                <h1 class="hero-title fade-in-up">SLSU College of Industrial Technology</h1>
-                <!-- Subtitle with fade-in animation -->
-                <p class="hero-subtitle fade-in-up">We aspire to be a leading innovative, high-performing college that develops technologically proficient graduates</p>
-                <!-- Call-to-action buttons -->
+            <div class="hero-content"> <!-- Container for hero text and buttons -->
+                <h1 class="hero-title fade-in-up">SLSU College of Industrial Technology</h1> <!-- Main title -->
+                <p class="hero-subtitle fade-in-up">We aspire to be a leading innovative, high-performing college that develops technologically proficient graduates</p> <!-- Description -->
+                
+                <!-- ACTION BUTTONS - Main navigation buttons -->
                 <div class="hero-buttons fade-in-up">
-                    <button class="btn primary">Explore Programs</button>
-                    <button class="btn secondary">Meet the Faculty</button>
+                    <button class="btn primary">Explore Programs</button> <!-- Primary action button -->
+                    <button class="btn secondary">Meet the Faculty</button> <!-- Secondary action button -->
                 </div>
             </div>
-            <!-- Animated background grid -->
-            <div class="hero-bg"></div>
+            <div class="hero-bg"></div> <!-- Background decoration element -->
         </section>
 
-        <!-- ANNOUNCEMENTS SLIDESHOW SECTION -->
+        <!-- ANNOUNCEMENTS SECTION - Sliding announcements display -->
         <section id="announcements" class="announcements-section">
-            <div class="container">
-                <h2 class="announcements-title">📣 Warriors Announcement!! 📣</h2>
+            <div class="container"> <!-- Content container -->
+                <h2 class="announcements-title">📣 Warriors Announcement!! 📣</h2> <!-- Section title -->
                 
+                <!-- SLIDESHOW CONTAINER - Houses all announcement slides -->
                 <div class="slideshow-container">
-                    <!-- Slide 1 -->
-                    <div class="slide active">
-                        <div class="slide-image">
-                            <img src="image source/elab.png" 
-                                alt="Enrollment Announcement" 
-                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect fill=\'%231e40af\' width=\'800\' height=\'400\'/%3E%3Ctext x=\'400\' y=\'200\' fill=\'white\' text-anchor=\'middle\' font-size=\'60\' font-family=\'Arial\'%3E🎓%3C/text%3E%3Ctext x=\'400\' y=\'260\' fill=\'white\' text-anchor=\'middle\' font-size=\'20\' font-family=\'Arial\'%3EEnrollment 2025%3C/text%3E%3C/svg%3E'">
+                    
+                    <!-- SLIDE 1 - Enrollment announcement -->
+                    <div class="slide active"> <!-- First slide (active by default) -->
+                        <div class="slide-image"> <!-- Image container -->
+                            <img src="image source/elab.png" alt="Enrollment Announcement">
                         </div>
-                        <div class="slide-content">
-                            <div class="slide-badge">New</div>
-                            <h3>Enrollment for 2nd Semester 2025</h3>
-                            <p>Registration is now open for the 2nd semester. Visit the registrar's office or apply online through our student portal.</p>
-                            <span class="slide-date">January 15, 2025</span>
+                        <div class="slide-content"> <!-- Text content container -->
+                            <div class="slide-badge">New</div> <!-- Status badge -->
+                            <h3>Enrollment for 2nd Semester 2025</h3> <!-- Slide title -->
+                            <p>Registration is now open for the 2nd semester. Visit the registrar's office or apply online through our student portal.</p> <!-- Slide description -->
+                            <span class="slide-date">January 15, 2025</span> <!-- Publication date -->
                         </div>
                     </div>
 
-                    <!-- Slide 2 -->
-                    <div class="slide">
+                    <!-- SLIDE 2 - Competition winners -->
+                    <div class="slide"> <!-- Second slide (hidden by default) -->
                         <div class="slide-image">
-                            <img src="image source/lab.png" 
-                                alt="Competition Winners" 
-                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect fill=\'%23f59e0b\' width=\'800\' height=\'400\'/%3E%3Ctext x=\'400\' y=\'200\' fill=\'white\' text-anchor=\'middle\' font-size=\'60\' font-family=\'Arial\'%3E🏆%3C/text%3E%3Ctext x=\'400\' y=\'260\' fill=\'white\' text-anchor=\'middle\' font-size=\'20\' font-family=\'Arial\'%3EChampions 2025%3C/text%3E%3C/svg%3E'">
+                            <img src="image source/lab.png" alt="Competition Winners">
                         </div>
                         <div class="slide-content">
                             <div class="slide-badge">Achievement</div>
@@ -130,12 +95,10 @@
                         </div>
                     </div>
 
-                    <!-- Slide 3 -->
-                    <div class="slide">
+                    <!-- SLIDE 3 - Laboratory upgrade -->
+                    <div class="slide"> <!-- Third slide (hidden by default) -->
                         <div class="slide-image">
-                            <img src="image source/slsubg.png" 
-                                alt="Laboratory Upgrade" 
-                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect fill=\'%2310b981\' width=\'800\' height=\'400\'/%3E%3Ctext x=\'400\' y=\'200\' fill=\'white\' text-anchor=\'middle\' font-size=\'60\' font-family=\'Arial\'%3E🔬%3C/text%3E%3Ctext x=\'400\' y=\'260\' fill=\'white\' text-anchor=\'middle\' font-size=\'20\' font-family=\'Arial\'%3ENew Equipment%3C/text%3E%3C/svg%3E'">
+                            <img src="image source/slsubg.png" alt="Laboratory Upgrade">
                         </div>
                         <div class="slide-content">
                             <div class="slide-badge">Upgrade</div>
@@ -145,53 +108,55 @@
                         </div>
                     </div>
 
-                    <!-- Navigation arrows -->
-                    <button class="slide-nav prev" onclick="changeSlide(-1)" aria-label="Previous announcement">❮</button>
-                    <button class="slide-nav next" onclick="changeSlide(1)" aria-label="Next announcement">❯</button>
+                    <!-- NAVIGATION ARROWS - Previous and next slide buttons -->
+                    <button class="slide-nav prev" onclick="changeSlide(-1)" aria-label="Previous announcement">←</button>
+                    <button class="slide-nav next" onclick="changeSlide(1)" aria-label="Next announcement">→</button>
                 </div>
 
-                <!-- Slide indicators -->
+                <!-- SLIDE INDICATORS - Dots showing current slide position -->
                 <div class="slide-indicators">
-                    <span class="indicator active" onclick="currentSlide(1)"></span>
-                    <span class="indicator" onclick="currentSlide(2)"></span>
-                    <span class="indicator" onclick="currentSlide(3)"></span>
+                    <span class="indicator active" onclick="currentSlide(1)"></span> <!-- First slide indicator -->
+                    <span class="indicator" onclick="currentSlide(2)"></span> <!-- Second slide indicator -->
+                    <span class="indicator" onclick="currentSlide(3)"></span> <!-- Third slide indicator -->
                 </div>
             </div>
         </section>
 
-
-        <!-- ABOUT SECTION -->
-        <!-- Department overview with feature cards -->
+        <!-- ABOUT SECTION - Department information and goals -->
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title animate-text">About Our Department</h2>
+                <h2 class="section-title animate-text">About Our Department</h2> <!-- Section heading -->
+                
+                <!-- ABOUT CARDS GRID - Information cards layout -->
                 <div class="about-grid">
-                    <!-- Feature Card 1: VISION -->
+                    <!-- Vision card -->
                     <div class="about-card animate-text">
-                        <h3>VISION</h3>
-                        <p>We aspire to be a leading innovative, high-performing college that develops technologically proficient graduates.</p>
+                        <h3>VISION</h3> <!-- Card title -->
+                        <p>We aspire to be a leading innovative, high-performing college that develops technologically proficient graduates.</p> <!-- Card content -->
                     </div>
-                    <!-- Feature Card 2: MISION -->
+                    
+                    <!-- Mission card -->
                     <div class="about-card animate-text">
-                        <h3>MISION</h3>
+                        <h3>MISSION</h3>
                         <p>Contribute in the skills development of the Filipino workers Innovatively proficient, productive, and versatile in all aspect of technology evolution Transform students with competence essentials for technological advancement.</p>
                     </div>
-                    <!-- Feature Card 3: Industry -->
+                    
+                    <!-- Goal cards - Department objectives -->
                     <div class="about-card animate-text">
                         <h3>Goal 1</h3>
                         <p>Develop qualified students to be effective instruments of inquiry and research with a sense of responsibility and commitment for the improvement of human condition-physical, mental and spiritual domains.</p>
                     </div>
-                    <!-- Feature Card 3: Industry -->
+                    
                     <div class="about-card animate-text">
                         <h3>Goal 2</h3>
                         <p>Stimulate and maintain functional and productive activities in various disciplines.</p>
                     </div>
-                    <!-- Feature Card 3: Industry -->
+                    
                     <div class="about-card animate-text">
                         <h3>Goal 3</h3>
                         <p>Acquire skills and leadership competence in various disciplines in order to accelerate community progress as trained professional in government and non-government agencies.</p>
                     </div>
-                    <!-- Feature Card 3: Industry -->
+                    
                     <div class="about-card animate-text">
                         <h3>Goal 4</h3>
                         <p>Adapt skills and internalize intellectual integrity, moral, cultural, and aesthetic values exemplifying ethical norms and professionalism.</p>
@@ -200,16 +165,18 @@
             </div>
         </section>
 
-        <!-- PROGRAMS SECTION -->
-        <!-- Academic programs with detailed information -->
+        <!-- PROGRAMS SECTION - Academic offerings -->
         <section id="programs" class="section bg-light">
             <div class="container">
                 <h2 class="section-title animate-text">Academic Programs</h2>
+                
+                <!-- PROGRAMS GRID - Course listings -->
                 <div class="programs-grid">
-                    <!-- Bachelor's Program -->
                     <div class="program-card animate-text">
-                        <h3>Bachelor of Science in Industrial Technology</h3>
-                        <p>Comprehensive undergraduate program covering fundamental industry concepts and practical applications.</p>
+                        <h3>Bachelor of Science in Industrial Technology</h3> <!-- Program title -->
+                        <p>Comprehensive undergraduate program covering fundamental industry concepts and practical applications.</p> <!-- Program description -->
+                        
+                        <!-- SPECIALIZATION LIST - Available program tracks -->
                         <ul>
                             <li>BindTech Computer Technology</li>
                             <li>BindTech Automotive Technology</li>
@@ -217,8 +184,8 @@
                             <li>BindTech Electronics Technology</li>
                             <li>BindTech Food Technology</li>
                             <li>BindTech Industrial Design Technology</li>
-                            <li>BindTech Mechanical Technologyy</li>
-                            <li>BindTech Fasion and Apparel Technology</li>
+                            <li>BindTech Mechanical Technology</li>
+                            <li>BindTech Fashion and Apparel Technology</li>
                             <li>Bachelor of Science in Information Technology</li>
                         </ul>
                     </div>
@@ -226,80 +193,65 @@
             </div>
         </section>
 
-        <!-- PROGRAMMER SECTION -->
-        <!-- Group 5 profiles with images and descriptions -->
+        <!-- FACULTY SECTION - Team member profiles -->
         <section id="faculty" class="section">
             <div class="container">
                 <h2 class="section-title animate-text">Distinguished Members</h2>
+                
+                <!-- FACULTY GRID - Profile cards layout -->
                 <div class="faculty-grid">
-                    <!-- Faculty Member 1 -->
+                    <!-- Individual faculty member cards -->
                     <div class="faculty-card animate-text">
-                        <img src="image source/Rondola2.jpg" 
-                            alt="Dave Andrew Rondola" 
-                            class="faculty-image">
-                        <h3>Dave Andrew Rondola</h3>
-                        <p class="title">1st Year Computer Technology Student</p>
-                        <p>previous STEM Student that didn't know what he's doing HEHE.</p>
+                        <img src="image source/Rondola2.jpg" alt="Dave Andrew Rondola" class="faculty-image"> <!-- Profile photo -->
+                        <h3>Dave Andrew Rondola</h3> <!-- Member name -->
+                        <p class="title">1st Year Computer Technology Student</p> <!-- Position/title -->
+                        <p>previous STEM Student that didn't know what he's doing HEHE.</p> <!-- Biography -->
                     </div>
-                    <!-- Faculty Member 2 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/miranda2.png" 
-                            alt="Kristine Kaye Miranda" 
-                            class="faculty-image">
+                        <img src="image source/miranda2.png" alt="Kristine Kaye Miranda" class="faculty-image">
                         <h3>Kristine Kaye Miranda</h3>
                         <p class="title">1st Year Computer Technology Student</p>
                         <p>The best reporter in our team frfr.</p>
                     </div>
-                    <!-- Faculty Member 3 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/Melivo2.jpg" 
-                            alt="John Paul Melivo" 
-                            class="faculty-image">
+                        <img src="image source/Melivo2.jpg" alt="John Paul Melivo" class="faculty-image">
                         <h3>John Paul Melivo</h3>
                         <p class="title">1st Year Computer Technology Student</p>
                         <p>The bisexual guy.</p>
                     </div>
-                    <!-- Faculty Member 4 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/Nilooban2.jpg" 
-                            alt="Leoj Nilooban" 
-                            class="faculty-image">
+                        <img src="image source/Nilooban2.jpg" alt="Leoj Nilooban" class="faculty-image">
                         <h3>Leoj Carlfonso D. Nilooban</h3>
                         <p class="title">1st Year Computer Technology Student</p>
                         <p> just call me Chik</p>
                     </div>
-                    <!-- Faculty Member 5 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/Jetomo.jpg" 
-                            alt="Jimuel Jetomo" 
-                            class="faculty-image">
+                        <img src="image source/Jetomo.jpg" alt="Jimuel Jetomo" class="faculty-image">
                         <h3>Jimuel Jetomo</h3>
                         <p class="title">1st Year Computer Technology Student</p>
-                        <p>“Hindi talino ang sukatan ng tagumpay, kundi ang kagustuhang matuto.”</p>
+                        <p>"Hindi talino ang sukatan ng tagumpay, kundi ang kagustuhang matuto."</p>
                     </div>
-                    <!-- Faculty Member 6 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/Niogan2.jpg" 
-                            alt="Ness" 
-                            class="faculty-image">
+                        <img src="image source/Niogan2.jpg" alt="Ness" class="faculty-image">
                         <h3>Ness Angela Niogan</h3>
                         <p class="title">1st Year Computer Technology Student</p>
-                        <p>"Hindi man ako genius, marunong naman akong mag Google.”</p>
+                        <p>"Hindi man ako genius, marunong naman akong mag Google."</p>
                     </div>
-                    <!-- Faculty Member 7 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/Ordillano.jpg" 
-                            alt="Nicotine" 
-                            class="faculty-image">
+                        <img src="image source/Ordillano.jpg" alt="Nicotine" class="faculty-image">
                         <h3>Nicole Ann Ordillano</h3>
                         <p class="title">1st Year Computer Technology Student</p>
                         <p>you can call me Nics or Icole</p>
                     </div>
-                    <!-- Faculty Member 8 -->
+                    
                     <div class="faculty-card animate-text">
-                        <img src="image source/Villas.jpg" 
-                            alt="Ljem S. Villarosa" 
-                            class="faculty-image">
+                        <img src="image source/Villas.jpg" alt="Ljem S. Villarosa" class="faculty-image">
                         <h3>Ljem S. Villarosa</h3>
                         <p class="title">1st Year Computer Technology Student</p>
                         <p>kind of person who finds peace in motion</p>
@@ -308,28 +260,29 @@
             </div>
         </section>
 
-        <!-- RESEARCH SECTION -->
-        <!-- Research areas and focus -->
+        <!-- FACILITIES SECTION - Department resources and labs -->
         <section id="research" class="section bg-light">
             <div class="container">
                 <h2 class="section-title animate-text">Research Areas</h2>
+                
+                <!-- FACILITIES GRID - Laboratory and resource descriptions -->
                 <div class="research-areas">
-                    <!-- Research Area 1 -->
+                    <!-- Individual facility cards -->
                     <div class="research-item animate-text">
-                        <h3>E-Library</h3>
-                        <p>A state-of-the-art digital learning hub equipped with high-speed internet, multimedia resources, and collaborative study spaces. Access thousands of academic journals, e-books, and research databases to support your educational journey..</p>
+                        <h3>E-Library</h3> <!-- Facility name -->
+                        <p>A state-of-the-art digital learning hub equipped with high-speed internet, multimedia resources, and collaborative study spaces. Access thousands of academic journals, e-books, and research databases to support your educational journey.</p> <!-- Facility description -->
                     </div>
-                    <!-- Research Area 2 -->
+                    
                     <div class="research-item animate-text">
                         <h3>CPT Lab</h3>
                         <p>A cutting-edge computer laboratory featuring the latest hardware and software technologies. Equipped with modern workstations, network infrastructure, and specialized tools for programming, system administration, and technical troubleshooting.</p>
                     </div>
-                    <!-- Research Area 3 -->
+                    
                     <div class="research-item animate-text">
                         <h3>MIS Lab</h3>
                         <p>An advanced computing facility designed for data analysis, database management, and enterprise system development. Features high-performance computers, business software suites, and simulation environments for real-world IT solutions.</p>
                     </div>
-                    <!-- Research Area 4 -->
+                    
                     <div class="research-item animate-text">
                         <h3>CPT Lec</h3>
                         <p>A modern, acoustically-optimized lecture hall designed for interactive learning. Equipped with smart boards, projection systems, audio-visual equipment, and comfortable seating to enhance the educational experience.</p>
@@ -338,43 +291,29 @@
             </div>
         </section>
 
-        <!-- PHOTO GALLERY SECTION -->
-        <!-- Campus showcase with customizable images -->
+        <!-- GALLERY SECTION - Campus photos and highlights -->
         <section id="gallery" class="photo-showcase">
-            
             <div class="container">
                 <h2 class="section-title animate-text">Campus Life</h2>
                 <p class="gallery-subtitle animate-text">Discover our vibrant campus community and state-of-the-art facilities</p>
                 
+                <!-- PHOTO GRID - Featured campus images -->
                 <div class="photo-grid">
-                    <!-- Featured Photo 1: Laboratory -->
+                    <!-- Campus photo cards with overlay information -->
                     <div class="photo-card animate-text" data-category="facilities">
-                        <div class="photo-image-container">
-                            <!-- Replace src with your actual lab photo -->
-                            <img src="image source/lab.png" alt="Computer Laboratory" class="photo-image" 
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="photo-placeholder lab-placeholder">
-                                <div class="placeholder-icon">💻</div>
-                                <span>Add Lab Photo</span>
-                            </div>
+                        <div class="photo-image-container"> <!-- Image wrapper -->
+                            <img src="image source/lab.png" alt="Computer Laboratory" class="photo-image">
                         </div>
-                        <div class="photo-overlay">
-                            <div class="photo-category">Facilities</div>
-                            <h3>Computer Laboratory</h3>
-                            <p>Modern computing facilities equipped with the latest technology for hands-on learning and research projects.</p>
+                        <div class="photo-overlay"> <!-- Text overlay on hover -->
+                            <div class="photo-category">Facilities</div> <!-- Category badge -->
+                            <h3>Computer Laboratory</h3> <!-- Photo title -->
+                            <p>Modern computing facilities equipped with the latest technology for hands-on learning and research projects.</p> <!-- Photo description -->
                         </div>
                     </div>
 
-                    <!-- Featured Photo 2: Students -->
                     <div class="photo-card animate-text" data-category="student-life">
                         <div class="photo-image-container">
-                            <!-- Replace src with your students photo -->
-                            <img src="image source/elab.png" alt="Students Collaborating" class="photo-image" 
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="photo-placeholder students-placeholder">
-                                <div class="placeholder-icon">👥</div>
-                                <span>Add Students Photo</span>
-                            </div>
+                            <img src="image source/elab.png" alt="Students Collaborating" class="photo-image">
                         </div>
                         <div class="photo-overlay">
                             <div class="photo-category">Student Life</div>
@@ -383,16 +322,9 @@
                         </div>
                     </div>
 
-                    <!-- Featured Photo 3: Campus Events -->
                     <div class="photo-card animate-text" data-category="events">
                         <div class="photo-image-container">
-                            <!-- Replace src with your events photo -->
-                            <img src="image source/exelence.png" alt="Campus Events" class="photo-image" 
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="photo-placeholder events-placeholder">
-                                <div class="placeholder-icon">🎓</div>
-                                <span>Add Events Photo</span>
-                            </div>
+                            <img src="image source/exelence.png" alt="Campus Events" class="photo-image">
                         </div>
                         <div class="photo-overlay">
                             <div class="photo-category">Events</div>
@@ -401,16 +333,9 @@
                         </div>
                     </div>
 
-                    <!-- Featured Photo 4: Innovation -->
                     <div class="photo-card animate-text" data-category="innovation">
                         <div class="photo-image-container">
-                            <!-- Replace src with your innovation/tech photo -->
-                            <img src="image source/innovation.png" alt="Technology Innovation" class="photo-image" 
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="photo-placeholder innovation-placeholder">
-                                <div class="placeholder-icon">🚀</div>
-                                <span>Add Innovation Photo</span>
-                            </div>
+                            <img src="image source/innovation.png" alt="Technology Innovation" class="photo-image">
                         </div>
                         <div class="photo-overlay">
                             <div class="photo-category">Innovation</div>
@@ -419,51 +344,47 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
-    </main>
 
-        <!-- CONTACT SECTION -->
-        <!-- Contact information and form -->
+        <!-- CONTACT SECTION - Contact information and message form -->
         <section id="contact" class="section">
             <div class="container">
                 <h2 class="section-title animate-text">Contact Us</h2>
+                
+                <!-- CONTACT GRID - Information and form side by side -->
                 <div class="contact-grid">
-                    <!-- Contact Information -->
+                    <!-- CONTACT INFORMATION - Address, phone, email -->
                     <div class="contact-info animate-text">
-                        <h3>Get in Touch</h3>
+                        <h3>Get in Touch</h3> <!-- Contact section title -->
+                        
+                        <!-- Contact details -->
                         <div class="contact-item">
-                            <strong>Address:</strong>
-                            <p>SLSU Main Campus, CIT Building<br>Lucban, Quezon</p>
+                            <strong>Address:</strong> <!-- Contact type label -->
+                            <p>SLSU Main Campus, CIT Building<br>Lucban, Quezon</p> <!-- Contact information -->
                         </div>
+                        
                         <div class="contact-item">
                             <strong>Phone:</strong>
                             <p>(63+) 949 445 9745</p>
                         </div>
+                        
                         <div class="contact-item">
                             <strong>Email:</strong>
                             <p>rdaveandrew@slsu.edu.ph</p>
                         </div>
                     </div>
-                    <!-- Contact Form -->
+                    
+                    <!-- CONTACT FORM - Message sending form -->
                     <div class="contact-form animate-text">
-                        <h3>Send us a message</h3>
+                        <h3>Send us a message</h3> <!-- Form title -->
+                        
+                        <!-- Message form with validation -->
                         <form id="contactForm" novalidate>
-                            <input type="text" 
-                                placeholder="Your Name" 
-                                required 
-                                aria-label="Your full name">
-                            <input type="email" 
-                                placeholder="Your Email" 
-                                required 
-                                aria-label="Your email address">
-                            <textarea placeholder="Your Message" 
-                                    rows="5" 
-                                    required 
-                                    aria-label="Your message"></textarea>
-                            <button type="submit" class="btn primary">Send Message</button>
+                            <input type="text" placeholder="Your Name" required aria-label="Your full name"> <!-- Name input field -->
+                            <input type="email" placeholder="Your Email" required aria-label="Your email address"> <!-- Email input field -->
+                            <textarea placeholder="Your Message" rows="5" required aria-label="Your message"></textarea> <!-- Message text area -->
+                            <button type="submit" class="btn primary">Send Message</button> <!-- Submit button -->
                         </form>
                     </div>
                 </div>
@@ -471,14 +392,14 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER - Copyright information -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 SLSU Main Campus Lucban, Quezon. All rights reserved.</p>
+            <p>&copy; 2025 SLSU Main Campus Lucban, Quezon. All rights reserved.</p> <!-- Copyright text -->
         </div>
     </footer>
 
-    <!-- Link to external JavaScript file -->
+    <!-- JAVASCRIPT - Link to external script file -->
     <script src="homefunctions.js"></script>
 </body>
 </html>

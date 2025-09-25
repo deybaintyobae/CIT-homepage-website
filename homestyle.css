@@ -1,564 +1,650 @@
-/*
-COLLEGE DEPARTMENT HOMEPAGE STYLES
-==================================
-
-This CSS file provides complete styling for a modern college department homepage.
-
-Features:
-- Modern, professional design with blue/green color scheme
-- Responsive layout that works on all screen sizes
-- Smooth animations and transitions
-- Glassmorphism effects on header
-- Gradient backgrounds and shadow effects
-- Hover animations for interactive elements
-- CSS Grid and Flexbox for layout
-- Mobile-first responsive design
-
-Color Palette:
-- Primary Blue: #1e40af
-- Secondary Green: #1a4d2e
-- Light Gray: #f8fafc
-- Dark Gray: #333
-- White: #fff
-
-Typography:
-- Main Font: Segoe UI (system font stack)
-- Headings: Bold weights (600-700)
-- Body: Regular weight (400)
+/* 
+SLSU COLLEGE OF INDUSTRIAL TECHNOLOGY - HOMEPAGE STYLES
+=====================================================
+Modern, responsive website styling for college department homepage
+Color Theme: Blue (#1e40af) and Green (#1a4d2e)
 */
 
-/* ===========================================
-RESET AND BASE STYLES
-   =========================================== */
+/* ========================================
+BASIC RESET AND FOUNDATION STYLES
+   ======================================== */
 
-/* CSS Reset for consistent cross-browser styling */
+/* Remove default browser spacing and ensure consistent box sizing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;              /* Remove default margins */
+    padding: 0;             /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element width */
 }
 
-/* Base body styles */
+/* Basic body styling - sets font and prevents horizontal scrolling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+    line-height: 1.6;       /* Comfortable line spacing for readability */
+    color: #333;            /* Dark gray text color */
+    overflow-x: hidden;     /* Prevent horizontal scroll bars */
 }
 
-/* Container for centered content with max-width */
+/* Content container - centers content with max width */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px;      /* Maximum content width */
+    margin: 0 auto;         /* Center horizontally */
+    padding: 0 20px;        /* Side padding for mobile */
 }
 
-/* ===========================================
-HEADER STYLES
-   =========================================== */
+/* ========================================
+HEADER AND NAVIGATION STYLES
+   ======================================== */
 
-/* Fixed header with glassmorphism effect */
+/* Fixed header that stays at top when scrolling */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Glassmorphism blur effect */
-    z-index: 1000; /* Stay above other content */
-    padding: 10px 0;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease; /* Smooth transitions */
+    position: fixed;                        /* Stay at top during scroll */
+    top: 0; left: 0; right: 0;             /* Full width positioning */
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    backdrop-filter: blur(10px);           /* Glassmorphism blur effect */
+    z-index: 1000;                         /* Stay above other content */
+    padding: 10px 0;                       /* Vertical padding */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease;             /* Smooth property changes */
 }
 
-/* Header container with flexbox layout */
+/* Header content layout */
 .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 1200px;                     /* Match main container width */
+    margin: 0 auto;                        /* Center header content */
+    padding: 0 20px;                       /* Side padding */
+    display: flex;                         /* Flexbox for layout */
+    justify-content: space-between;        /* Space items apart */
+    align-items: center;                   /* Vertical center alignment */
 }
 
-/* Logo container */
+/* Logo section layout */
 .logos {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+    display: flex;          /* Side-by-side layout */
+    gap: 10px;             /* Space between logos */
+    align-items: center;    /* Vertical center alignment */
 }
 
 /* Individual logo styling */
 .logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* Circular logos */
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    width: 60px;                    /* Logo width */
+    height: 60px;                   /* Logo height */
+    border-radius: 50%;             /* Make logos circular */
+    transition: transform 0.3s ease; /* Smooth hover animation */
+    cursor: pointer;                /* Show pointer on hover */
 }
 
 /* Logo hover effect */
 .logo:hover {
-    transform: scale(1.05); /* Slight grow on hover */
+    transform: scale(1.05);         /* Slightly enlarge on hover */
 }
 
-.logo-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #1a4d2e;
-    line-height: 1.2;
-}
-
-.logo-subtitle {
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 500;
-}
-
-/* Logo container */
-.logos {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-/* Logo text styling */
+/* Logo text container */
 .logo-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    display: flex;          /* Stack text vertically */
+    flex-direction: column; /* Vertical stacking */
+    gap: 2px;              /* Small gap between title and subtitle */
 }
 
-/* ===========================================
-MOBILE MENU TOGGLE
-   =========================================== */
+/* Main logo title */
+.logo-title {
+    font-size: 1.1rem;     /* Title font size */
+    font-weight: 700;      /* Bold font weight */
+    color: #1a4d2e;        /* Green color */
+    line-height: 1.2;      /* Tight line spacing */
+}
 
-/* Hamburger menu button (hidden on desktop) */
+/* Logo subtitle */
+.logo-subtitle {
+    font-size: 0.9rem;     /* Smaller subtitle */
+    color: #666;           /* Gray color */
+    font-weight: 500;      /* Medium font weight */
+}
+
+/* Mobile hamburger menu button - hidden on desktop */
 .menu-toggle {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    transition: transform 0.3s ease;
+    display: none;              /* Hidden by default */
+    flex-direction: column;     /* Stack hamburger lines */
+    background: none;           /* No background */
+    border: none;               /* No border */
+    cursor: pointer;            /* Pointer cursor */
+    padding: 10px;              /* Click area padding */
+    transition: transform 0.3s ease; /* Animation for button */
 }
 
 /* Hamburger menu lines */
 .menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: #333;
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 2px;
+    width: 25px;                        /* Line width */
+    height: 3px;                        /* Line thickness */
+    background: #333;                   /* Dark gray color */
+    margin: 3px 0;                      /* Space between lines */
+    transition: 0.3s;                   /* Animation for transformation */
+    border-radius: 2px;                 /* Slightly rounded lines */
 }
 
-/* Animated hamburger to X transformation */
+/* Hamburger to X transformation when menu is active */
 .menu-toggle.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(-45deg) translate(-5px, 6px); /* Top line becomes part of X */
 }
-
 .menu-toggle.active span:nth-child(2) {
-    opacity: 0; /* Hide middle line */
+    opacity: 0;                                     /* Hide middle line */
 }
-
 .menu-toggle.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(45deg) translate(-5px, -6px); /* Bottom line becomes part of X */
 }
 
-/* ===========================================
-NAVIGATION STYLES
-   =========================================== */
-
-/* Desktop navigation */
+/* Desktop navigation menu */
 .nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
+    display: flex;      /* Horizontal layout */
+    list-style: none;   /* Remove bullet points */
+    gap: 25px;         /* Space between menu items */
 }
 
 /* Navigation links */
 .nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-    padding: 5px 0;
+    text-decoration: none;      /* Remove underline */
+    color: #333;                /* Dark gray text */
+    font-weight: 500;           /* Medium font weight */
+    transition: color 0.3s ease; /* Smooth color change */
+    position: relative;         /* For underline positioning */
+    padding: 5px 0;            /* Vertical padding for click area */
 }
 
-/* Animated underline effect */
+/* Animated underline effect for nav links */
 .nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #1e40af;
-    transition: width 0.3s ease;
+    content: '';                /* Empty pseudo-element */
+    position: absolute;         /* Position relative to link */
+    bottom: -5px;              /* Position below text */
+    left: 0;                   /* Start from left */
+    width: 0;                  /* Start with no width */
+    height: 2px;               /* Underline thickness */
+    background: #1e40af;       /* Blue underline color */
+    transition: width 0.3s ease; /* Animate width change */
 }
 
-/* Hover effects */
+/* Hover effects for navigation links */
 .nav a:hover::after {
-    width: 100%;
+    width: 100%;               /* Full width underline on hover */
 }
-
 .nav a:hover {
-    color: #1e40af;
+    color: #1e40af;            /* Blue text color on hover */
 }
 
-/* ===========================================
-HERO SECTION
-   =========================================== */
+/* ========================================
+HERO SECTION STYLES
+   ======================================== */
 
-/* Full-screen hero section */
+/* Full-screen hero banner */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    height: 100vh;                      /* Full viewport height */
+    display: flex;                      /* Flexbox for centering */
+    align-items: center;                /* Vertical center */
+    justify-content: center;            /* Horizontal center */
+    position: relative;                 /* For background positioning */
     background: linear-gradient(rgba(15, 33, 90, 0.4), rgba(0,0,0,0.4)), 
-                url('image\ source/slsubg.png') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    overflow: hidden;
+                url('image\ source/slsubg.png') center/cover no-repeat; /* Background with overlay */
+    color: rgb(255, 255, 255);                       /* White text */
+    text-align: center;                 /* Center-aligned text */
+    overflow: hidden;                   /* Hide overflow */
 }
 
-/* Animated background grid */
+/* Animated background decoration */
 .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
+    position: absolute;     /* Position over hero background */
+    top: 0; left: 0; right: 0; bottom: 0; /* Full coverage */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); /* Grid pattern overlay */
+    opacity: 0.3;          /* Semi-transparent */
 }
 
 /* Hero content container */
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
+    position: relative;     /* Above background */
+    z-index: 2;            /* Above hero-bg */
+    max-width: 800px;      /* Limit content width */
+    padding: 0 20px;       /* Side padding */
 }
 
 /* Main hero title */
 .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    font-size: 3.5rem;     /* Large title text */
+    font-weight: 700;      /* Bold font */
+    margin-bottom: 20px;   /* Space below title */
+    line-height: 1.2;      /* Tight line spacing */
 }
 
 /* Hero subtitle */
 .hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-    opacity: 0.9;
+    font-size: 1.3rem;     /* Medium subtitle text */
+    margin-bottom: 40px;   /* Space below subtitle */
+    opacity: 0.9;          /* Slightly transparent */
 }
 
 /* Hero button container */
 .hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex;          /* Side-by-side layout */
+    gap: 20px;             /* Space between buttons */
+    justify-content: center; /* Center buttons */
+    flex-wrap: wrap;        /* Wrap on small screens */
 }
 
-/* ===========================================
+/* ========================================
 BUTTON STYLES
-   =========================================== */
+   ======================================== */
 
 /* Base button styling */
 .btn {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 50px; /* Rounded buttons */
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
+    padding: 12px 30px;             /* Button padding for comfortable click area */
+    border: none;                   /* Remove default border */
+    border-radius: 50px;            /* Rounded button edges */
+    font-size: 1rem;                /* Standard font size */
+    font-weight: 600;               /* Semi-bold text */
+    cursor: pointer;                /* Pointer cursor on hover */
+    transition: all 0.3s ease;      /* Smooth hover animations */
+    text-decoration: none;          /* Remove link underline */
+    display: inline-block;          /* Allow width/height control */
 }
 
-/* Primary button (white on colored background) */
+/* Primary button - white background with blue text */
 .btn.primary {
-    background: #fff;
-    color: #1e40af;
+    background: #fff;               /* White background */
+    color: #1e40af;                 /* Blue text */
 }
-
 .btn.primary:hover {
-    background: #f8fafc;
-    transform: translateY(-2px); /* Lift effect */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: #f8fafc;            /* Light gray on hover */
+    transform: translateY(-2px);    /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
-/* Secondary button (outlined) */
+/* Secondary button - outlined style */
 .btn.secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
+    background: transparent;        /* Transparent background */
+    color: #fff;                    /* White text */
+    border: 2px solid #fff;         /* White border */
 }
-
 .btn.secondary:hover {
-    background: #fff;
-    color: #1a4d2e;
-    transform: translateY(-2px);
+    background: #fff;               /* White background on hover */
+    color: #1a4d2e;                 /* Green text on hover */
+    transform: translateY(-2px);    /* Lift effect */
 }
 
-/* ===========================================
-SECTION LAYOUTS
-   =========================================== */
+/* ========================================
+SECTION LAYOUT STYLES
+   ======================================== */
 
 /* Base section styling */
 .section {
-    padding: 100px 0; /* Large vertical padding */
+    padding: 100px 0;               /* Large vertical padding for sections */
 }
 
-/* Light background sections */
+/* Light background for alternating sections */
 .bg-light {
-    background: #f8fafc;
+    background: #f8fafc;            /* Light gray background */
 }
 
-/* Section titles */
+/* Section title styling */
 .section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 60px;
-    color: #1e40af;
-    font-weight: 700;
+    font-size: 2.5rem;              /* Large title text */
+    text-align: center;             /* Center alignment */
+    margin-bottom: 60px;            /* Space below title */
+    color: #1e40af;                 /* Blue color */
+    font-weight: 700;               /* Bold font */
 }
 
-/* ===========================================
-ABOUT SECTION
-   =========================================== */
+/* ========================================
+ANNOUNCEMENTS SECTION STYLES
+   ======================================== */
 
-/* Grid layout for about cards */
+/* Announcements section with green gradient background */
+.announcements-section {
+    padding: 60px 0;                /* Section padding */
+    background: linear-gradient(135deg, #1a4d2e 0%, #1a4d2e 100%); /* Green gradient */
+}
+
+/* Announcements title */
+.announcements-title {
+    text-align: center;             /* Center title */
+    font-size: 2.5rem;              /* Large font */
+    color: white;                   /* White text */
+    margin-bottom: 40px;            /* Space below */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Text shadow for depth */
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;             /* For absolute positioning of controls */
+    max-width: 900px;               /* Maximum slideshow width */
+    margin: 0 auto;                 /* Center horizontally */
+    background: white;              /* White background */
+    border-radius: 20px;            /* Rounded corners */
+    overflow: hidden;               /* Hide overflow */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Large shadow */
+}
+
+/* Individual slide styling */
+.slide {
+    display: none;                  /* Hidden by default */
+    animation: slideIn 0.5s ease-in-out; /* Slide-in animation */
+}
+.slide.active {
+    display: flex;                  /* Show active slide with flex layout */
+}
+
+/* Slide-in animation keyframes */
+@keyframes slideIn {
+    from {
+        opacity: 0;                 /* Start transparent */
+        transform: translateX(30px); /* Start shifted right */
+    }
+    to {
+        opacity: 1;                 /* End fully visible */
+        transform: translateX(0);    /* End in normal position */
+    }
+}
+
+/* Slide image container */
+.slide-image {
+    flex: 0 0 40%;                  /* Fixed 40% width, no grow/shrink */
+    min-height: 300px;              /* Minimum height */
+    background: #f3f4f6;            /* Light gray fallback */
+}
+.slide-image img {
+    width: 100%;                    /* Full container width */
+    height: 100%;                   /* Full container height */
+    object-fit: cover;              /* Crop to fit container */
+}
+
+/* Slide content area */
+.slide-content {
+    flex: 1;                        /* Take remaining space */
+    padding: 40px;                  /* Internal padding */
+    display: flex;                  /* Flex layout */
+    flex-direction: column;         /* Stack content vertically */
+    justify-content: center;        /* Center content vertically */
+}
+
+/* Slide status badge */
+.slide-badge {
+    display: inline-block;          /* Inline block for width control */
+    background: #1e40af;            /* Blue background */
+    color: white;                   /* White text */
+    padding: 6px 16px;              /* Badge padding */
+    border-radius: 20px;            /* Rounded badge */
+    font-size: 0.85rem;             /* Small font */
+    font-weight: 600;               /* Semi-bold */
+    margin-bottom: 15px;            /* Space below */
+    width: fit-content;             /* Only as wide as content */
+}
+
+/* Slide title */
+.slide-content h3 {
+    font-size: 1.8rem;              /* Large heading */
+    color: #333;                    /* Dark gray */
+    margin-bottom: 15px;            /* Space below */
+    line-height: 1.3;               /* Tight line height */
+}
+
+/* Slide description */
+.slide-content p {
+    color: #666;                    /* Medium gray */
+    font-size: 1.1rem;              /* Slightly larger text */
+    line-height: 1.6;               /* Comfortable line height */
+    margin-bottom: 20px;            /* Space below */
+}
+
+/* Slide date */
+.slide-date {
+    color: #999;                    /* Light gray */
+    font-size: 0.9rem;              /* Small font */
+    font-style: italic;             /* Italic text */
+}
+
+/* Navigation arrow buttons */
+.slide-nav {
+    position: absolute;             /* Position over slideshow */
+    top: 50%;                       /* Vertical center */
+    transform: translateY(-50%);    /* Adjust for button height */
+    background: rgba(255,255,255,0.9); /* Semi-transparent white */
+    color: #333;                    /* Dark text */
+    border: none;                   /* No border */
+    font-size: 24px;                /* Large arrow text */
+    padding: 15px 20px;             /* Button padding */
+    cursor: pointer;                /* Pointer cursor */
+    transition: all 0.3s ease;      /* Smooth hover effects */
+    z-index: 10;                    /* Above slide content */
+    border-radius: 50%;             /* Circular buttons */
+    width: 50px; height: 50px;      /* Fixed dimensions */
+    display: flex;                  /* Flex for centering */
+    align-items: center;            /* Center arrow vertically */
+    justify-content: center;        /* Center arrow horizontally */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Button shadow */
+}
+.slide-nav:hover {
+    background: white;              /* Solid white on hover */
+    transform: translateY(-50%) scale(1.1); /* Slightly larger on hover */
+}
+.slide-nav.prev { left: 20px; }    /* Position previous button */
+.slide-nav.next { right: 20px; }   /* Position next button */
+
+/* Slide indicator dots */
+.slide-indicators {
+    display: flex;                  /* Horizontal layout */
+    justify-content: center;        /* Center indicators */
+    gap: 10px;                     /* Space between dots */
+    margin-top: 30px;              /* Space above indicators */
+}
+.indicator {
+    width: 12px; height: 12px;     /* Dot dimensions */
+    border-radius: 50%;            /* Circular dots */
+    background: rgba(255,255,255,0.4); /* Semi-transparent white */
+    cursor: pointer;               /* Pointer cursor */
+    transition: all 0.3s ease;     /* Smooth transitions */
+}
+.indicator.active {
+    background: white;             /* Solid white for active */
+    transform: scale(1.3);         /* Larger active indicator */
+}
+.indicator:hover {
+    background: rgba(255,255,255,0.7); /* Lighter on hover */
+}
+
+/* ========================================
+ABOUT SECTION STYLES
+   ======================================== */
+
+/* About section card grid */
 .about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 60px;
+    display: grid;                              /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 40px;                                  /* Space between cards */
+    margin-top: 60px;                           /* Space above grid */
 }
 
 /* Individual about cards */
 .about-card {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;                           /* White background */
+    padding: 40px;                              /* Internal padding */
+    border-radius: 15px;                        /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animations */
 }
-
 .about-card:hover {
-    transform: translateY(-5px); /* Hover lift effect */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);                /* Lift on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
 }
-
 .about-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #1a4d2e;
+    font-size: 1.5rem;                          /* Card title size */
+    margin-bottom: 15px;                        /* Space below title */
+    color: #1a4d2e;                             /* Green color */
 }
 
-/* ===========================================
-PROGRAMS SECTION
-   =========================================== */
+/* ========================================
+PROGRAMS SECTION STYLES
+   ======================================== */
 
-/* Grid for program cards */
+/* Programs grid layout */
 .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
+    display: grid;                              /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
+    gap: 40px;                                  /* Gap between cards */
 }
 
-/* Program card styling */
+/* Program cards */
 .program-card {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;                           /* White background */
+    padding: 40px;                              /* Internal padding */
+    border-radius: 15px;                        /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
 }
-
 .program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);                /* Hover lift */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Hover shadow */
 }
-
 .program-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #1a4d2e; /* Red color for program titles */
+    font-size: 1.5rem;                          /* Title size */
+    margin-bottom: 15px;                        /* Space below */
+    color: #1a4d2e;                             /* Green color */
 }
-
 .program-card ul {
-    margin-top: 20px;
-    padding-left: 20px;
+    margin-top: 20px;                           /* Space above list */
+    padding-left: 20px;                         /* List indentation */
 }
-
 .program-card li {
-    margin-bottom: 8px;
-    color: #666;
+    margin-bottom: 8px;                         /* Space between list items */
+    color: #666;                                /* Gray text */
 }
 
-/* ===========================================
-FACULTY SECTION
-   =========================================== */
+/* ========================================
+FACULTY SECTION STYLES
+   ======================================== */
 
-/* Faculty grid layout */
+/* Faculty member grid */
 .faculty-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    display: grid;                              /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 40px;                                  /* Gap between cards */
 }
 
 /* Faculty profile cards */
 .faculty-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;                           /* White background */
+    padding: 30px;                              /* Internal padding */
+    border-radius: 15px;                        /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Card shadow */
+    text-align: center;                         /* Center-aligned content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
 }
-
 .faculty-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);                /* Hover lift */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Hover shadow */
 }
 
-/* Faculty profile images (placeholder with gradient) */
+/* Faculty profile images */
 .faculty-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #1e40af, #1a4d2e); /* Blue to Green gradient */
-    margin: 0 auto 20px;
+    width: 120px; height: 120px;               /* Fixed dimensions */
+    border-radius: 50%;                        /* Circular images */
+    background: linear-gradient(45deg, #1e40af, #1a4d2e); /* Gradient fallback */
+    margin: 0 auto 20px;                       /* Center with bottom margin */
+    object-fit: cover;                         /* Crop images to fit */
 }
-
 .faculty-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: #333;
+    font-size: 1.3rem;                         /* Name font size */
+    margin-bottom: 5px;                        /* Space below name */
+    color: #333;                               /* Dark gray */
 }
-
 .faculty-card .title {
-    color: #1a4d2e;
-    font-weight: 600;
-    margin-bottom: 15px;
+    color: #1a4d2e;                            /* Green for titles */
+    font-weight: 600;                          /* Semi-bold */
+    margin-bottom: 15px;                       /* Space below title */
 }
 
-/* ===========================================
-RESEARCH SECTION
-   =========================================== */
+/* ========================================
+RESEARCH/FACILITIES SECTION STYLES
+   ======================================== */
 
 /* Research areas grid */
 .research-areas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    display: grid;                              /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 30px;                                  /* Gap between items */
 }
 
-/* Research item cards */
+/* Research/facility item cards */
 .research-item {
-    padding: 30px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px;                              /* Internal padding */
+    background: #fff;                           /* White background */
+    border-radius: 15px;                        /* Rounded corners */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Card shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
 }
-
 .research-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);                /* Small hover lift */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Hover shadow */
 }
-
 .research-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: #1a4d2e;
+    font-size: 1.3rem;                          /* Title size */
+    margin-bottom: 15px;                        /* Space below */
+    color: #1a4d2e;                             /* Green color */
 }
 
-/* ===========================================
-PHOTO SHOWCASE SECTION
-   =========================================== */
+/* ========================================
+PHOTO GALLERY SECTION STYLES
+   ======================================== */
 
 /* Photo showcase section with dark background */
 .photo-showcase {
-    padding: 120px 0;
-    background: linear-gradient(135deg, #1a4d2e, #1a4d2e);
-    position: relative;
-    overflow: hidden;
+    padding: 120px 0;                           /* Large section padding */
+    background: linear-gradient(135deg, #1a4d2e, #1a4d2e); /* Green gradient */
+    position: relative;                         /* For background decoration */
+    overflow: hidden;                           /* Hide overflow */
 }
 
-/* Gallery section title styling - White color */
+/* Gallery title override for white color */
 .photo-showcase .section-title {
-    color: white !important;
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    color: white !important;                    /* Force white color */
+    font-size: 2.8rem;                          /* Larger title */
+    margin-bottom: 20px;                        /* Space below */
 }
 
+/* Gallery subtitle */
 .gallery-subtitle {
-    text-align: center;           /* ← Already centered */
-    color: white !important;     /* ← overide White text color */
-    margin-left: auto;            /* ← Centers the element */
-    margin-right: auto;           /* ← Centers the element */
-}
-
-/* Background decoration */
-.photo-bg-decoration {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 50%);
-    pointer-events: none;
+    text-align: center;                         /* Center alignment */
+    color: white !important;                    /* White text */
+    margin-left: auto; margin-right: auto;      /* Center element */
 }
 
 /* Photo grid layout */
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 60px;
+    display: grid;                              /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 30px;                                  /* Gap between photos */
+    margin-top: 60px;                           /* Space above grid */
 }
 
 /* Individual photo cards */
 .photo-card {
-    height: 300px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: linear-gradient(45deg, #3b82f6, #1e40af, #1a4d2e);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    height: 300px;                              /* Fixed card height */
+    border-radius: 20px;                        /* Rounded corners */
+    position: relative;                         /* For overlay positioning */
+    overflow: hidden;                           /* Hide overflow */
+    cursor: pointer;                            /* Pointer cursor */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover animation */
+    background: linear-gradient(45deg, #3b82f6, #1e40af, #1a4d2e); /* Gradient background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Card shadow */
 }
 
-/* Photo card background images (you can replace these with actual images) */
+/* Photo card background images with overlays */
 .photo-card:nth-child(1) {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23374151" width="400" height="300"/><circle cx="150" cy="120" r="40" fill="%236366f1"/><rect x="250" y="80" width="80" height="80" rx="10" fill="%2310b981"/><polygon points="100,200 150,150 200,200 200,250 100,250" fill="%23f59e0b"/></svg>') center/cover;
 }
-
 .photo-card:nth-child(2) {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%232563eb" width="400" height="300"/><circle cx="200" cy="150" r="60" fill="%23ffffff" opacity="0.3"/><rect x="100" y="100" width="200" height="100" rx="20" fill="%231d4ed8" opacity="0.7"/></svg>') center/cover;
 }
-
 .photo-card:nth-child(3) {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23059669" width="400" height="300"/><path d="M50,150 Q200,50 350,150 Q200,250 50,150" fill="%23ffffff" opacity="0.2"/><circle cx="200" cy="150" r="30" fill="%2310b981"/></svg>') center/cover;
 }
-
 .photo-card:nth-child(4) {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23dc2626" width="400" height="300"/><rect x="50" y="50" width="300" height="200" rx="20" fill="%23ffffff" opacity="0.1"/><circle cx="200" cy="150" r="50" fill="%23fbbf24" opacity="0.8"/></svg>') center/cover;
@@ -566,455 +652,235 @@ PHOTO SHOWCASE SECTION
 
 /* Photo overlay content */
 .photo-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 40px 25px 25px;
-    color: white;
-    transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;                         /* Position over photo */
+    bottom: 0; left: 0; right: 0;             /* Full width at bottom */
+    background: linear-gradient(transparent, rgba(0,0,0,0.8)); /* Gradient background */
+    padding: 40px 25px 25px;                   /* Padding with larger top */
+    color: white;                              /* White text */
+    transform: translateY(100%);               /* Hidden by default */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth slide animation */
 }
-
 .photo-overlay h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #ffffff;
+    font-size: 1.4rem;                         /* Title size */
+    font-weight: 600;                          /* Semi-bold */
+    margin-bottom: 8px;                        /* Space below */
+    color: #ffffff;                            /* White color */
 }
-
 .photo-overlay p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    opacity: 0.9;
-    margin: 0;
+    font-size: 0.9rem;                         /* Description size */
+    line-height: 1.5;                          /* Line height */
+    opacity: 0.9;                              /* Slightly transparent */
+    margin: 0;                                 /* No margin */
 }
 
-/* Hover effects */
+/* Photo hover effects */
 .photo-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px) scale(1.02);   /* Lift and slightly enlarge */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); /* Larger shadow */
 }
-
 .photo-card:hover .photo-overlay {
-    transform: translateY(0);
+    transform: translateY(0);                   /* Show overlay on hover */
 }
 
-/* ===========================================
-CONTACT SECTION
-   =========================================== */
+/* ========================================
+CONTACT SECTION STYLES
+   ======================================== */
 
-/* Contact section grid layout */
+/* Contact section grid */
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 60px;
-    align-items: start;
+    display: grid;                              /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive columns */
+    gap: 60px;                                  /* Large gap */
+    align-items: start;                         /* Align to top */
 }
 
 /* Contact information styling */
 .contact-item {
-    margin-bottom: 25px;
+    margin-bottom: 25px;                        /* Space between items */
 }
-
 .contact-item strong {
-    color: #1e40af;
-    display: block;
-    margin-bottom: 5px;
+    color: #1e40af;                             /* Blue labels */
+    display: block;                             /* Block display for labels */
+    margin-bottom: 5px;                         /* Space below labels */
 }
 
 /* Contact form styling */
 .contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex;                              /* Flex layout */
+    flex-direction: column;                     /* Stack form elements */
+    gap: 20px;                                  /* Space between elements */
 }
-
 .contact-form input,
 .contact-form textarea {
-    padding: 15px;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    font-family: inherit;
+    padding: 15px;                              /* Internal padding */
+    border: 2px solid #e5e7eb;                 /* Light border */
+    border-radius: 10px;                        /* Rounded corners */
+    font-size: 1rem;                            /* Font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus effects */
+    font-family: inherit;                       /* Inherit body font */
 }
-
 .contact-form input:focus,
 .contact-form textarea:focus {
-    outline: none;
-    border-color: #1e40af;
-    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+    outline: none;                              /* Remove default outline */
+    border-color: #1e40af;                      /* Blue focus border */
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); /* Blue focus shadow */
 }
 
-/* ===========================================
-FOOTER
-   =========================================== */
+/* ========================================
+FOOTER STYLES
+   ======================================== */
 
 .footer {
-    background: #1a4d2e;
-    color: #fff;
-    text-align: center;
-    padding: 40px 0;
+    background: #1a4d2e;                        /* Green background */
+    color: #fff;                                /* White text */
+    text-align: center;                         /* Center alignment */
+    padding: 40px 0;                            /* Vertical padding */
 }
 
-
-/* ===========================================
+/* ========================================
 ANIMATION CLASSES
-   =========================================== */
+   ======================================== */
 
 /* Initial fade-in animation for hero elements */
 .fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
+    opacity: 0;                                 /* Start transparent */
+    transform: translateY(30px);                /* Start shifted down */
+    animation: fadeInUp 1s ease forwards;       /* Apply animation */
 }
 
 /* Staggered animation delays */
-.fade-in-up:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.fade-in-up:nth-child(3) {
-    animation-delay: 0.4s;
-}
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.4s; }
 
 /* Keyframe animation for fade-in-up effect */
 @keyframes fadeInUp {
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1;                             /* End fully visible */
+        transform: translateY(0);               /* End in normal position */
     }
 }
 
 /* Scroll-triggered animation class (controlled by JavaScript) */
 .animate-text {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+    opacity: 0;                                 /* Start hidden */
+    transform: translateY(30px);                /* Start shifted down */
+    transition: all 0.6s ease;                 /* Smooth transition */
 }
-
 .animate-text.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;                                 /* Show when visible */
+    transform: translateY(0);                   /* Move to normal position */
 }
 
-/* ===========================================
-RESPONSIVE DESIGN
-   =========================================== */
+/* ========================================
+RESPONSIVE DESIGN - TABLET AND MOBILE
+   ======================================== */
 
 /* Tablet and Mobile Styles (768px and below) */
 @media (max-width: 768px) {
-    /* Show hamburger menu */
-    .menu-toggle {
-        display: flex;
-    }
+    /* Show hamburger menu on mobile */
+    .menu-toggle { display: flex; }
     
     /* Mobile navigation overlay */
     .nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        transform: translateY(-100%); /* Hidden by default */
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: absolute;                     /* Position over content */
+        top: 100%;                             /* Below header */
+        left: 0; right: 0;                     /* Full width */
+        background: rgba(255, 255, 255, 0.98); /* Semi-transparent background */
+        backdrop-filter: blur(10px);           /* Blur background */
+        transform: translateY(-100%);          /* Hidden above screen */
+        opacity: 0; visibility: hidden;        /* Hidden by default */
+        transition: all 0.3s ease;            /* Smooth show/hide */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Shadow */
     }
     
     /* Show mobile menu when active */
     .nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+        transform: translateY(0);              /* Show at normal position */
+        opacity: 1; visibility: visible;       /* Make visible */
     }
     
     /* Mobile menu layout */
     .nav ul {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        flex-direction: column;                /* Stack menu items */
+        padding: 20px;                         /* Internal padding */
+        gap: 15px;                            /* Space between items */
     }
     
     /* Smaller hero title on mobile */
-    .hero-title {
-        font-size: 2.5rem;
-    }
+    .hero-title { font-size: 2.5rem; }
     
     /* Stack hero buttons vertically */
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column;                /* Stack buttons */
+        align-items: center;                   /* Center buttons */
     }
     
     /* Smaller section titles */
-    .section-title {
-        font-size: 2rem;
-    }
+    .section-title { font-size: 2rem; }
     
     /* Single column layout for contact */
     .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr;           /* Single column */
+        gap: 40px;                            /* Smaller gap */
     }
+    
+    /* Mobile slideshow adjustments */
+    .slide { flex-direction: column; }         /* Stack slide content */
+    .slide-image { min-height: 200px; }       /* Smaller image height */
+    .slide-content { padding: 25px; }         /* Less padding */
+    .slide-content h3 { font-size: 1.4rem; }  /* Smaller titles */
+    
+    /* Smaller navigation arrows */
+    .slide-nav {
+        width: 40px; height: 40px;            /* Smaller dimensions */
+        font-size: 18px;                      /* Smaller arrows */
+    }
+    .slide-nav.prev { left: 10px; }          /* Closer to edge */
+    .slide-nav.next { right: 10px; }         /* Closer to edge */
 }
 
 /* Small Mobile Styles (480px and below) */
 @media (max-width: 480px) {
     /* Even smaller hero title */
-    .hero-title {
-        font-size: 2rem;
-    }
+    .hero-title { font-size: 2rem; }
     
     /* Force single column layouts */
     .about-grid,
     .programs-grid,
     .faculty-grid,
     .research-areas {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;           /* Single column only */
     }
     
     /* Smaller logos on mobile */
-    .logos {
-        gap: 10px;
-    }
-    
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
+    .logos { gap: 10px; }                     /* Less space between logos */
+    .logo { width: 50px; height: 50px; }     /* Smaller logo size */
     
     /* Reduce section padding on mobile */
-    .section {
-        padding: 60px 0;
-    }
+    .section { padding: 60px 0; }             /* Less vertical padding */
     
     /* Smaller card padding */
     .about-card,
-    .program-card {
-        padding: 25px;
-    }
+    .program-card { padding: 25px; }         /* Less internal padding */
     
     /* Adjust contact grid for small screens */
     .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        grid-template-columns: 1fr;           /* Single column */
+        gap: 30px;                            /* Smaller gap */
     }
 }
 
-/* Announcements Section Styles */
-        .announcements-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #1a4d2e 0%, #1a4d2e 100%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .announcements-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        /* Slideshow Container */
-        .slideshow-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        /* Slides */
-        .slide {
-            display: none;
-            animation: slideIn 0.5s ease-in-out;
-        }
-
-        .slide.active {
-            display: flex;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .slide-image {
-            flex: 0 0 40%;
-            min-height: 300px;
-            background: #f3f4f6;
-        }
-
-        .slide-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide-content {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .slide-badge {
-            display: inline-block;
-            background: #1e40af;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            width: fit-content;
-        }
-
-        .slide-content h3 {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .slide-content p {
-            color: #666;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .slide-date {
-            color: #999;
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* Navigation Arrows */
-        .slide-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            color: #333;
-            border: none;
-            font-size: 24px;
-            padding: 15px 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .slide-nav:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .slide-nav.prev {
-            left: 20px;
-        }
-
-        .slide-nav.next {
-            right: 20px;
-        }
-
-        /* Slide Indicators */
-        .slide-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .indicator.active {
-            background: white;
-            transform: scale(1.3);
-        }
-
-        .indicator:hover {
-            background: rgba(255,255,255,0.7);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .slide {
-                flex-direction: column;
-            }
-
-            .slide-image {
-                min-height: 200px;
-            }
-
-            .slide-content {
-                padding: 25px;
-            }
-
-            .slide-content h3 {
-                font-size: 1.4rem;
-            }
-
-            .slide-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .slide-nav.prev {
-                left: 10px;
-            }
-
-            .slide-nav.next {
-                right: 10px;
-            }
-        } /* <-- Add this closing brace for the @media (max-width: 768px) block */
-
-/* ===========================================
-ACCESSIBILITY ENHANCEMENTS
-   =========================================== */
+/* ========================================
+ACCESSIBILITY AND FOCUS STYLES
+   ======================================== */
 
 /* Focus styles for keyboard navigation */
 button:focus,
 input:focus,
 textarea:focus,
 a:focus {
-    outline: 2px solid #1e40af;
-    outline-offset: 2px;
+    outline: 2px solid #1e40af;               /* Blue focus outline */
+    outline-offset: 2px;                      /* Space around outline */
 }
 
 /* Reduce motion for users who prefer it */
@@ -1022,14 +888,9 @@ a:focus {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;      /* Very short animations */
+        animation-iteration-count: 1 !important;    /* Single iteration */
+        transition-duration: 0.01ms !important;     /* Very short transitions */
+        scroll-behavior: auto !important;           /* No smooth scroll */
     }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    /* Add high contrast overrides here if needed */
 }
