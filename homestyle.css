@@ -227,43 +227,88 @@ HERO SECTION STYLES
 }
 
 /* ========================================
-BUTTON STYLES
+ENHANCED BUTTON STYLES
    ======================================== */
 
-/* Base button styling */
+/* Base button styling with modern enhancements */
 .btn {
-    padding: 12px 30px;             /* Button padding for comfortable click area */
+    padding: 15px 35px;             /* Larger button padding for better click area */
     border: none;                   /* Remove default border */
     border-radius: 50px;            /* Rounded button edges */
-    font-size: 1rem;                /* Standard font size */
+    font-size: 1.1rem;              /* Slightly larger font size */
     font-weight: 600;               /* Semi-bold text */
     cursor: pointer;                /* Pointer cursor on hover */
-    transition: all 0.3s ease;      /* Smooth hover animations */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover animations */
     text-decoration: none;          /* Remove link underline */
-    display: inline-block;          /* Allow width/height control */
+    display: inline-flex;           /* Flex for better alignment */
+    align-items: center;            /* Center content vertically */
+    justify-content: center;        /* Center content horizontally */
+    position: relative;             /* For pseudo-elements */
+    letter-spacing: 0.5px;          /* Slight letter spacing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Initial shadow */
+    overflow: hidden;               /* Hide overflow for animations */
 }
 
-/* Primary button - white background with blue text */
+/* Enhanced primary button - white background with blue text */
 .btn.primary {
-    background: #fff;               /* White background */
+    background: linear-gradient(135deg, #ffffff, #f8fafc); /* Subtle gradient background */
     color: #1e40af;                 /* Blue text */
-}
-.btn.primary:hover {
-    background: #f8fafc;            /* Light gray on hover */
-    transform: translateY(-2px);    /* Lift effect */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    border: 2px solid transparent;  /* Transparent border for hover effect */
 }
 
-/* Secondary button - outlined style */
-.btn.secondary {
-    background: transparent;        /* Transparent background */
-    color: #fff;                    /* White text */
-    border: 2px solid #fff;         /* White border */
+.btn.primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; right: 0; bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
 }
+
+.btn.primary:hover::before {
+    left: 100%;                     /* Sweep effect */
+}
+
+.btn.primary:hover {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    transform: translateY(-3px);    /* Enhanced lift effect */
+    box-shadow: 0 12px 30px rgba(30, 64, 175, 0.3); /* Blue shadow on hover */
+    border-color: rgba(30, 64, 175, 0.2);
+}
+
+/* Enhanced secondary button - outlined style with gradient */
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #fff;                    /* White text */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Semi-transparent border */
+    backdrop-filter: blur(10px);    /* Glass effect */
+}
+
+.btn.secondary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(30, 64, 175, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.btn.secondary:hover::before {
+    opacity: 1;                     /* Show gradient background */
+}
+
 .btn.secondary:hover {
-    background: #fff;               /* White background on hover */
+    background: rgba(255, 255, 255, 0.95); /* More opaque background on hover */
     color: #1a4d2e;                 /* Green text on hover */
-    transform: translateY(-2px);    /* Lift effect */
+    transform: translateY(-3px);    /* Enhanced lift effect */
+    border-color: rgba(255, 255, 255, 1); /* Solid border */
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3); /* White shadow */
+}
+
+/* Button active state */
+.btn:active {
+    transform: translateY(-1px) scale(0.98); /* Slight press effect */
 }
 
 /* ========================================

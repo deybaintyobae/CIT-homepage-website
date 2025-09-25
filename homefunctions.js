@@ -345,7 +345,7 @@ function initializeCardInteractions() {
 }
 
 /* ========================================
-   FORM HANDLING
+FORM HANDLING
    ======================================== */
 
 // Handle contact form submission with validation
@@ -585,7 +585,7 @@ function showSlide(n) {
 }
 
 /* ========================================
-   PERFORMANCE OPTIMIZATIONS
+PERFORMANCE OPTIMIZATIONS
    ======================================== */
 
 // Add staggered animation delays for better visual flow
@@ -654,7 +654,7 @@ function initializeFocusManagement() {
 }
 
 /* ========================================
-   MAIN INITIALIZATION FUNCTIONS
+MAIN INITIALIZATION FUNCTIONS
    ======================================== */
 
 // Initialize all functionality when DOM is ready
