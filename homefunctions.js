@@ -1,67 +1,55 @@
 /*
-INDUSTRIAL TECHNOLOGGY HOMEPAGE JAVASCRIPT
-=====================================
-
-This JavaScript file handles all interactive features and animations for the homepage.
-
-Features:
-- Mobile menu toggle functionality
-- Scroll-triggered animations using Intersection Observer API
-- Smooth scrolling navigation
-- Dynamic header background changes
-- Form validation and submission handling
-- Parallax effects for hero section
-- Typing animation for hero title
-- Enhanced hover effects for cards
-- Performance optimized with modern APIs
-
-Dependencies: None (Vanilla JavaScript)
-Browser Support: Modern browsers (ES6+)
+SLSU COLLEGE OF INDUSTRIAL TECHNOLOGY - HOMEPAGE JAVASCRIPT
+=========================================================
+Interactive functionality for college department website
+Handles mobile menu, animations, forms, and slideshow
 */
 
-// ===========================================
-// MOBILE MENU FUNCTIONALITY
-// ===========================================
+/* ========================================
+MOBILE MENU FUNCTIONALITY
+   ======================================== */
 
-/**
- * Initialize mobile menu toggle functionality
- * Handles hamburger menu animation and navigation visibility
- */
+// Initialize mobile hamburger menu functionality
 function initializeMobileMenu() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navigation = document.getElementById('navigation');
+    // Get menu button and navigation elements from HTML
+    const menuToggle = document.getElementById('menuToggle');     // Hamburger button
+    const navigation = document.getElementById('navigation');     // Navigation menu
     
-    // Check if elements exist before adding event listeners
+    // Exit if elements don't exist (safety check)
     if (!menuToggle || !navigation) {
         console.warn('Menu elements not found');
         return;
     }
 
-    // Toggle menu visibility and hamburger animation
+    // Add click event to hamburger button
     menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navigation.classList.toggle('active');
+        // Toggle 'active' class on both button and menu
+        this.classList.toggle('active');           // 'this' refers to menuToggle
+        navigation.classList.toggle('active');     // Show/hide navigation
         
-        // Add accessibility attributes
+        // Update accessibility attribute for screen readers
         const isExpanded = this.classList.contains('active');
         this.setAttribute('aria-expanded', isExpanded);
     });
 
     // Close menu when clicking on navigation links
-    const navLinks = document.querySelectorAll('.nav a');
+    const navLinks = document.querySelectorAll('.nav a');    // Get all navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
+            // Remove active classes to close menu
             menuToggle.classList.remove('active');
             navigation.classList.remove('active');
             menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 
-    // Close menu when clicking outside (accessibility improvement)
+    // Close menu when clicking outside (better user experience)
     document.addEventListener('click', function(event) {
+        // Check if click was inside menu or on toggle button
         const isClickInsideMenu = navigation.contains(event.target);
         const isClickOnToggle = menuToggle.contains(event.target);
         
+        // Close menu if clicked outside and menu is open
         if (!isClickInsideMenu && !isClickOnToggle && navigation.classList.contains('active')) {
             menuToggle.classList.remove('active');
             navigation.classList.remove('active');
@@ -70,351 +58,333 @@ function initializeMobileMenu() {
     });
 }
 
-// ===========================================
-// SCROLL ANIMATIONS
-// ===========================================
+/* ========================================
+SCROLL-TRIGGERED ANIMATIONS
+   ======================================== */
 
-/**
- * Initialize scroll-triggered animations using Intersection Observer
- * Provides better performance than scroll event listeners
- */
+// Initialize animations that trigger when scrolling
 function initializeScrollAnimations() {
-    // Intersection Observer configuration
+    // Configuration for when animations should trigger
     const observerOptions = {
-        threshold: 0.1, // Trigger when 10% of element is visible
-        rootMargin: '0px 0px -50px 0px' // Trigger 50px before element enters viewport
+        threshold: 0.1,                    // Trigger when 10% of element is visible
+        rootMargin: '0px 0px -50px 0px'    // Trigger 50px before element enters viewport
     };
 
-    // Create observer for scroll animations
+    // Create intersection observer to watch for elements entering viewport
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Add visible class to trigger CSS animations
-                entry.target.classList.add('visible');
-                
-                // Unobserve the element for performance (one-time animation)
-                observer.unobserve(entry.target);
+            if (entry.isIntersecting) {              // If element is now visible
+                entry.target.classList.add('visible'); // Add 'visible' class for CSS animation
+                observer.unobserve(entry.target);      // Stop watching this element (one-time animation)
             }
         });
     }, observerOptions);
 
-    // Observe all elements with animate-text class
+    // Find all elements with animation class and start watching them
     const animateElements = document.querySelectorAll('.animate-text');
     animateElements.forEach(element => {
-        observer.observe(element);
+        observer.observe(element);                   // Start watching each element
     });
 
     console.log(`Observing ${animateElements.length} elements for scroll animations`);
 }
 
-// ===========================================
-// SMOOTH SCROLLING NAVIGATION
-// ===========================================
+/* ========================================
+SMOOTH SCROLLING NAVIGATION
+   ======================================== */
 
-/**
- * Add smooth scrolling behavior to navigation links
- * Handles internal anchor links with offset for fixed header
- */
+// Add smooth scrolling to internal anchor links
 function initializeSmoothScrolling() {
+    // Find all links that point to sections on same page (starting with #)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            e.preventDefault();                          // Prevent default jump behavior
             
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
+            const targetId = this.getAttribute('href');  // Get target section ID
+            const target = document.querySelector(targetId); // Find target element
             
             if (target) {
-                const headerOffset = 80; // Account for fixed header height
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                const headerOffset = 80;                 // Account for fixed header height
+                const elementPosition = target.getBoundingClientRect().top; // Get element position
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset; // Calculate scroll position
 
-                // Smooth scroll to target
+                // Smoothly scroll to calculated position
                 window.scrollTo({
                     top: offsetPosition,
-                    behavior: 'smooth'
+                    behavior: 'smooth'                   // Enable smooth scrolling
                 });
             }
         });
     });
 }
 
-// ===========================================
-// DYNAMIC HEADER EFFECTS
-// ===========================================
+/* ========================================
+DYNAMIC HEADER EFFECTS
+   ======================================== */
 
-/**
- * Change header appearance based on scroll position
- * Creates more prominent header background when scrolling
- */
+// Change header appearance based on scroll position
 function initializeHeaderEffects() {
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.header');   // Get header element
     
+    // Exit if header doesn't exist
     if (!header) {
         console.warn('Header element not found');
         return;
     }
 
-    // Throttle scroll events for better performance
-    let ticking = false;
+    // Use throttling to improve scroll performance
+    let ticking = false;                                // Throttling flag
     
     function updateHeader() {
-        const scrollY = window.scrollY;
+        const scrollY = window.scrollY;                 // Current scroll position
         
-        if (scrollY > 100) {
-            // Scrolled down - make header more prominent
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
-        } else {
-            // At top - lighter header
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        if (scrollY > 100) {                           // If scrolled down more than 100px
+            // Make header more prominent
+            header.style.background = 'rgba(255, 255, 255, 0.98)'; // More opaque
+            header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)'; // Darker shadow
+        } else {                                       // If near top of page
+            // Lighter header appearance
+            header.style.background = 'rgba(255, 255, 255, 0.95)'; // More transparent
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)'; // Lighter shadow
         }
         
-        ticking = false;
+        ticking = false;                               // Reset throttling flag
     }
 
+    // Add scroll event listener with throttling
     window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
+        if (!ticking) {                                // Only run if not already running
+            requestAnimationFrame(updateHeader);       // Schedule update for next frame
+            ticking = true;                           // Set throttling flag
         }
     });
 }
 
-// ===========================================
-// HERO BUTTON FUNCTIONALITY
-// ===========================================
+/* ========================================
+HERO BUTTON FUNCTIONALITY
+   ======================================== */
 
-/**
- * Initialize hero button click handlers
- * Makes the Call-to-Action buttons functional with smooth navigation
- */
+// Make hero section buttons functional
 function initializeHeroButtons() {
-    const exploreBtn = document.querySelector('.hero-buttons .btn.primary');
-    const facultyBtn = document.querySelector('.hero-buttons .btn.secondary');
+    // Get both hero buttons
+    const exploreBtn = document.querySelector('.hero-buttons .btn.primary');    // "Explore Programs" button
+    const facultyBtn = document.querySelector('.hero-buttons .btn.secondary');  // "Meet the Faculty" button
     
+    // Exit if buttons don't exist
     if (!exploreBtn || !facultyBtn) {
         console.warn('Hero buttons not found');
         return;
     }
 
-    // "Explore Programs" button - navigate to programs section
+    // "Explore Programs" button functionality
     exploreBtn.addEventListener('click', function() {
-        const programsSection = document.querySelector('#programs');
+        const programsSection = document.querySelector('#programs'); // Find programs section
         if (programsSection) {
-            const headerOffset = 80;
-            const elementPosition = programsSection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-
-            // Add visual feedback
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
+            scrollToSection(programsSection);           // Smooth scroll to section
+            addButtonFeedback(this);                   // Visual feedback
         }
     });
 
-    // "Meet the Faculty" button - navigate to faculty section
+    // "Meet the Faculty" button functionality
     facultyBtn.addEventListener('click', function() {
-        const facultySection = document.querySelector('#faculty');
+        const facultySection = document.querySelector('#faculty'); // Find faculty section
         if (facultySection) {
-            const headerOffset = 80;
-            const elementPosition = facultySection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-
-            // Add visual feedback
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
+            scrollToSection(facultySection);            // Smooth scroll to section
+            addButtonFeedback(this);                   // Visual feedback
         }
     });
 
     console.log('Hero buttons initialized successfully');
 }
 
-// ===========================================
-// PARALLAX EFFECTS
-// ===========================================
+// Helper function to scroll to a section
+function scrollToSection(section) {
+    const headerOffset = 80;                           // Account for fixed header
+    const elementPosition = section.getBoundingClientRect().top; // Get element position
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset; // Calculate scroll position
 
-/**
- * Add subtle parallax effect to hero section
- * Creates depth and visual interest during scroll
- */
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'                             // Smooth scrolling
+    });
+}
+
+// Helper function to add visual feedback to button clicks
+function addButtonFeedback(button) {
+    button.style.transform = 'scale(0.95)';            // Slightly shrink button
+    setTimeout(() => {
+        button.style.transform = '';                   // Return to normal size
+    }, 150);                                          // After 150ms
+}
+
+/* ========================================
+PARALLAX EFFECTS
+   ======================================== */
+
+// Add subtle parallax effect to hero section
 function initializeParallaxEffects() {
+    // Get hero elements for parallax
     const heroContent = document.querySelector('.hero-content');
     const heroBackground = document.querySelector('.hero-bg');
     
+    // Exit if elements don't exist
     if (!heroContent || !heroBackground) {
         console.warn('Hero elements not found for parallax effect');
         return;
     }
 
-    let ticking = false;
+    let ticking = false;                               // Throttling flag
     
     function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const viewportHeight = window.innerHeight;
+        const scrolled = window.pageYOffset;           // Current scroll position
+        const viewportHeight = window.innerHeight;     // Browser window height
         
-        // Only apply parallax when hero is visible
+        // Only apply parallax when hero section is visible
         if (scrolled < viewportHeight) {
-            const parallaxContent = scrolled * 0.5;
-            const parallaxBackground = scrolled * 0.3;
+            const parallaxContent = scrolled * 0.5;    // Move content slower than scroll
+            const parallaxBackground = scrolled * 0.3;  // Move background even slower
             
+            // Apply transforms to create parallax effect
             heroContent.style.transform = `translateY(${parallaxContent}px)`;
             heroBackground.style.transform = `translateY(${parallaxBackground}px)`;
         }
         
-        ticking = false;
+        ticking = false;                               // Reset throttling flag
     }
 
+    // Add scroll listener with throttling
     window.addEventListener('scroll', function() {
         if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
+            requestAnimationFrame(updateParallax);     // Schedule update for next frame
+            ticking = true;                           // Set throttling flag
         }
     });
 }
 
-// ===========================================
-// TYPING ANIMATION
-// ===========================================
+/* ========================================
+TYPING ANIMATION
+   ======================================== */
 
-/**
- * Create typewriter effect for hero title
- * Adds engaging animation on page load
- */
+// Create typewriter effect for hero title
 function typeWriter(element, text, speed = 80) {
+    // Exit if parameters are invalid
     if (!element || !text) return;
     
-    let i = 0;
-    element.textContent = '';
-    element.style.borderRight = '2px solid white'; // Cursor effect
+    let i = 0;                                        // Current character index
+    element.textContent = '';                         // Clear existing text
+    element.style.borderRight = '2px solid white';   // Add blinking cursor effect
     
     function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else {
-            // Remove cursor after typing is complete
+        if (i < text.length) {                        // If more characters to type
+            element.textContent += text.charAt(i);    // Add next character
+            i++;                                      // Move to next character
+            setTimeout(type, speed);                  // Schedule next character
+        } else {                                      // If typing complete
             setTimeout(() => {
-                element.style.borderRight = 'none';
+                element.style.borderRight = 'none';   // Remove cursor after delay
             }, 1000);
         }
     }
     
-    type();
+    type();                                          // Start typing animation
 }
 
-/**
- * Initialize typing effect for hero title
- */
+// Initialize typing effect for hero title
 function initializeTypingEffect() {
-    const heroTitle = document.querySelector('.hero-title');
+    const heroTitle = document.querySelector('.hero-title'); // Get hero title element
     
+    // Exit if title doesn't exist
     if (!heroTitle) {
         console.warn('Hero title not found for typing effect');
         return;
     }
     
-    const originalText = heroTitle.textContent;
+    const originalText = heroTitle.textContent;       // Store original text
     
-    // Start typing effect after page loads
+    // Start typing effect after short delay
     setTimeout(() => {
-        typeWriter(heroTitle, originalText, 80);
+        typeWriter(heroTitle, originalText, 80);      // 80ms between characters
     }, 500);
 }
 
-// ===========================================
-// ENHANCED CARD INTERACTIONS
-// ===========================================
+/* ========================================
+ENHANCED CARD INTERACTIONS
+   ======================================== */
 
-/**
- * Add enhanced hover effects to interactive cards
- * Provides better user feedback and engagement
- */
+// Add hover effects to interactive cards
 function initializeCardInteractions() {
+    // Find all card elements
     const cards = document.querySelectorAll('.about-card, .program-card, .faculty-card, .research-item');
     
     cards.forEach(card => {
-        // Enhanced hover enter effect
+        // Mouse enter effect
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-            this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
-            this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            this.style.transform = 'translateY(-8px) scale(1.02)';      // Lift and slightly enlarge
+            this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';  // Larger shadow
+            this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'; // Smooth animation
         });
         
-        // Reset on hover leave
+        // Mouse leave effect
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            this.style.transform = 'translateY(0) scale(1)';            // Return to normal
+            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';   // Normal shadow
         });
         
-        // Add subtle click animation
+        // Mouse down effect (when clicking)
         card.addEventListener('mousedown', function() {
-            this.style.transform = 'translateY(-6px) scale(1.01)';
+            this.style.transform = 'translateY(-6px) scale(1.01)';      // Slightly less lift
         });
         
+        // Mouse up effect (when releasing click)
         card.addEventListener('mouseup', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.transform = 'translateY(-8px) scale(1.02)';      // Return to hover state
         });
     });
     
     console.log(`Enhanced interactions added to ${cards.length} cards`);
 }
 
-// ===========================================
-// FORM HANDLING
-// ===========================================
+/* ========================================
+   FORM HANDLING
+   ======================================== */
 
-/**
- * Handle contact form submission with validation
- * Provides user feedback and form validation
- */
+// Handle contact form submission with validation
 function initializeFormHandling() {
-    const contactForm = document.querySelector('.contact-form form');
+    const contactForm = document.querySelector('.contact-form form'); // Get contact form
     
+    // Exit if form doesn't exist
     if (!contactForm) {
         console.warn('Contact form not found');
         return;
     }
 
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault();                            // Prevent default form submission
         
-        // Get form elements
+        // Get form input elements
         const nameInput = this.querySelector('input[type="text"]');
         const emailInput = this.querySelector('input[type="email"]');
         const messageTextarea = this.querySelector('textarea');
         const submitBtn = this.querySelector('button[type="submit"]');
         
         // Get form data
-        const name = nameInput.value.trim();
+        const name = nameInput.value.trim();           // Remove whitespace
         const email = emailInput.value.trim();
         const message = messageTextarea.value.trim();
         
-        // Clear previous error states
+        // Clear any previous error states
         clearFormErrors([nameInput, emailInput, messageTextarea]);
         
         // Validation
-        let isValid = true;
+        let isValid = true;                           // Form validity flag
         
+        // Validate name field
         if (!name) {
             showFieldError(nameInput, 'Name is required');
             isValid = false;
         }
         
+        // Validate email field
         if (!email) {
             showFieldError(emailInput, 'Email is required');
             isValid = false;
@@ -423,80 +393,82 @@ function initializeFormHandling() {
             isValid = false;
         }
         
+        // Validate message field
         if (!message) {
             showFieldError(messageTextarea, 'Message is required');
             isValid = false;
         }
         
+        // Exit if form is not valid
         if (!isValid) return;
         
-        // Simulate form submission
-        const originalText = submitBtn.textContent;
+        // Simulate form submission process
+        const originalText = submitBtn.textContent;    // Store original button text
         
+        // Update button to show loading state
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.7';
         
         // Simulate API call delay
         setTimeout(() => {
+            // Show success state
             submitBtn.textContent = 'Message Sent!';
-            submitBtn.style.background = '#10b981';
+            submitBtn.style.background = '#10b981';    // Green success color
             submitBtn.style.opacity = '1';
             
-            // Show success message
+            // Show success message to user
             showSuccessMessage('Thank you! Your message has been sent successfully.');
             
             // Reset form after delay
             setTimeout(() => {
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.background = '';
+                this.reset();                         // Clear form fields
+                submitBtn.textContent = originalText;  // Reset button text
+                submitBtn.disabled = false;           // Re-enable button
+                submitBtn.style.background = '';      // Reset button color
             }, 2000);
-        }, 1000);
+        }, 1000);                                     // 1 second delay
     });
 }
 
-/**
- * Validate email format
- */
+// Validate email format using regular expression
 function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Email validation pattern
+    return emailRegex.test(email);                    // Return true if valid
 }
 
-/**
- * Show error for form field
- */
+// Show error message for form field
 function showFieldError(field, message) {
-    field.style.borderColor = '#1e40af';
-    field.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.1)';
+    // Style field to show error
+    field.style.borderColor = '#1e40af';              // Blue error border
+    field.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.1)'; // Red shadow
     
-    // Remove existing error message
+    // Remove existing error message if present
     const existingError = field.parentNode.querySelector('.error-message');
     if (existingError) {
         existingError.remove();
     }
     
-    // Add error message
+    // Create and add new error message
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
-    errorDiv.style.color = '#1e40af';
-    errorDiv.style.fontSize = '0.875rem';
-    errorDiv.style.marginTop = '5px';
-    errorDiv.textContent = message;
+    errorDiv.style.color = '#1e40af';                 // Blue error text
+    errorDiv.style.fontSize = '0.875rem';             // Small font
+    errorDiv.style.marginTop = '5px';                 // Space above message
+    errorDiv.textContent = message;                   // Error message text
     
+    // Insert error message after the field
     field.parentNode.insertBefore(errorDiv, field.nextSibling);
 }
 
-/**
- * Clear form field errors
- */
+// Clear error states from form fields
 function clearFormErrors(fields) {
     fields.forEach(field => {
-        field.style.borderColor = '#e5e7eb';
-        field.style.boxShadow = '';
+        // Reset field styling
+        field.style.borderColor = '#e5e7eb';           // Reset border color
+        field.style.boxShadow = '';                    // Remove shadow
         
+        // Remove error message if present
         const errorMessage = field.parentNode.querySelector('.error-message');
         if (errorMessage) {
             errorMessage.remove();
@@ -504,151 +476,216 @@ function clearFormErrors(fields) {
     });
 }
 
-/**
- * Show success message
- */
+// Show success message notification
 function showSuccessMessage(message) {
+    // Create success notification element
     const successDiv = document.createElement('div');
     successDiv.className = 'success-message';
     successDiv.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: #10b981;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        z-index: 1001;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
+        position: fixed;                              /* Fixed positioning */
+        top: 100px;                                  /* Position from top */
+        right: 20px;                                 /* Position from right */
+        background: #10b981;                         /* Green background */
+        color: white;                                /* White text */
+        padding: 15px 20px;                          /* Internal padding */
+        border-radius: 10px;                         /* Rounded corners */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow */
+        z-index: 1001;                              /* Above other content */
+        transform: translateX(400px);               /* Start off-screen */
+        transition: transform 0.3s ease;            /* Smooth animation */
     `;
-    successDiv.textContent = message;
+    successDiv.textContent = message;                 // Success message text
     
-    document.body.appendChild(successDiv);
+    document.body.appendChild(successDiv);            // Add to page
     
-    // Slide in
+    // Slide notification into view
     setTimeout(() => {
-        successDiv.style.transform = 'translateX(0)';
+        successDiv.style.transform = 'translateX(0)';  // Move to visible position
     }, 100);
     
-    // Remove after delay
+    // Remove notification after delay
     setTimeout(() => {
-        successDiv.style.transform = 'translateX(400px)';
+        successDiv.style.transform = 'translateX(400px)'; // Slide out
         setTimeout(() => {
-            document.body.removeChild(successDiv);
-        }, 300);
-    }, 3000);
+            document.body.removeChild(successDiv);    // Remove from page
+        }, 300);                                      // After animation completes
+    }, 3000);                                        // Show for 3 seconds
 }
 
-// ===========================================
-// PERFORMANCE OPTIMIZATIONS
-// ===========================================
+/* ========================================
+SLIDESHOW FUNCTIONALITY
+   ======================================== */
 
-/**
- * Add staggered animation delays for better visual flow
- */
+// Slideshow variables
+let slideIndex = 1;                                  // Current slide (1-based)
+let slideInterval;                                   // Auto-advance timer
+
+// Initialize slideshow functionality
+function initSlideshow() {
+    showSlide(slideIndex);                           // Show first slide
+    startAutoSlide();                                // Start auto-advance
+}
+
+// Start automatic slide advancement
+function startAutoSlide() {
+    slideInterval = setInterval(() => {
+        changeSlide(1);                              // Go to next slide
+    }, 3000);                                       // Every 3 seconds
+}
+
+// Stop automatic slide advancement
+function stopAutoSlide() {
+    clearInterval(slideInterval);                    // Clear timer
+}
+
+// Restart automatic slide advancement
+function restartAutoSlide() {
+    stopAutoSlide();                                 // Stop current timer
+    startAutoSlide();                                // Start new timer
+}
+
+// Change slide by n positions (1 for next, -1 for previous)
+function changeSlide(n) {
+    showSlide(slideIndex += n);                      // Update and show slide
+    restartAutoSlide();                              // Reset auto-advance timer
+}
+
+// Go to specific slide number
+function currentSlide(n) {
+    showSlide(slideIndex = n);                       // Set and show slide
+    restartAutoSlide();                              // Reset auto-advance timer
+}
+
+// Display the specified slide
+function showSlide(n) {
+    const slides = document.getElementsByClassName('slide');        // Get all slides
+    const indicators = document.getElementsByClassName('indicator'); // Get all indicators
+    
+    // Handle wrap-around for slide numbers
+    if (n > slides.length) {                         // If past last slide
+        slideIndex = 1;                              // Go to first slide
+    }
+    if (n < 1) {                                    // If before first slide
+        slideIndex = slides.length;                  // Go to last slide
+    }
+    
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');        // Remove active class
+    }
+    
+    // Remove active class from all indicators
+    for (let i = 0; i < indicators.length; i++) {
+        indicators[i].classList.remove('active');    // Remove active class
+    }
+    
+    // Show current slide and indicator
+    slides[slideIndex - 1].classList.add('active');      // Show current slide (convert to 0-based)
+    indicators[slideIndex - 1].classList.add('active');  // Highlight current indicator
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+// Add staggered animation delays for better visual flow
 function initializeStaggeredAnimations() {
-    // Add loading animation delay for staggered effect
-    const textElements = document.querySelectorAll('.animate-text');
+    const textElements = document.querySelectorAll('.animate-text'); // Get animated elements
+    
+    // Add progressive delays to create staggered effect
     textElements.forEach((element, index) => {
-        element.style.transitionDelay = `${index * 0.1}s`;
+        element.style.transitionDelay = `${index * 0.1}s`;          // 0.1s delay per element
     });
     
     console.log(`Staggered animations applied to ${textElements.length} elements`);
 }
 
-/**
- * Preload critical resources
- */
+// Preload critical resources (placeholder for future enhancements)
 function preloadResources() {
-    // Preload hero background image if using external images
-    // This is a placeholder for actual image preloading if needed
     console.log('Resources preloaded successfully');
 }
 
-// ===========================================
-// ACCESSIBILITY ENHANCEMENTS
-// ===========================================
+/* ========================================
+ACCESSIBILITY ENHANCEMENTS
+   ======================================== */
 
-/**
- * Add keyboard navigation support
- */
+// Add keyboard navigation support
 function initializeKeyboardNavigation() {
     // Handle escape key to close mobile menu
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape') {                    // If escape key pressed
             const menuToggle = document.getElementById('menuToggle');
             const navigation = document.getElementById('navigation');
             
+            // Close menu if it's open
             if (navigation && navigation.classList.contains('active')) {
                 menuToggle.classList.remove('active');
                 navigation.classList.remove('active');
                 menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.focus(); // Return focus to menu button
+                menuToggle.focus();                  // Return focus to menu button
             }
         }
     });
 }
 
-/**
- * Initialize focus management for better accessibility
- */
+// Initialize focus management for better accessibility
 function initializeFocusManagement() {
-    // Add visible focus indicators for keyboard users
+    // Add keyboard navigation class when user tabs
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Tab') {
-            document.body.classList.add('keyboard-navigation');
+            document.body.classList.add('keyboard-navigation'); // Add class for CSS styling
         }
     });
     
+    // Remove keyboard navigation class when user clicks
     document.addEventListener('mousedown', function() {
         document.body.classList.remove('keyboard-navigation');
     });
     
-    // Add CSS for keyboard navigation
+    // Add CSS for keyboard focus indicators
     const style = document.createElement('style');
     style.textContent = `
         .keyboard-navigation *:focus {
-            outline: 2px solid #1e40af !important;
-            outline-offset: 2px !important;
+            outline: 2px solid #1e40af !important;      /* Blue focus outline */
+            outline-offset: 2px !important;             /* Space around outline */
         }
     `;
-    document.head.appendChild(style);
+    document.head.appendChild(style);                    // Add styles to page
 }
 
-// ===========================================
-// INITIALIZATION
-// ===========================================
+/* ========================================
+   MAIN INITIALIZATION FUNCTIONS
+   ======================================== */
 
-/**
- * Initialize all functionality when DOM is ready
- */
+// Initialize all functionality when DOM is ready
 function initializeApplication() {
     console.log('Initializing College Department Homepage...');
     
     try {
-        // Core functionality
-        initializeMobileMenu();
-        initializeScrollAnimations();
-        initializeSmoothScrolling();
-        initializeHeaderEffects();
-        initializeHeroButtons();
+        // Core functionality - essential features
+        initializeMobileMenu();                      // Mobile hamburger menu
+        initializeScrollAnimations();                // Scroll-triggered animations
+        initializeSmoothScrolling();                 // Smooth anchor link scrolling
+        initializeHeaderEffects();                   // Dynamic header styling
+        initializeHeroButtons();                     // Hero section button functionality
         
-        // Visual enhancements
-        initializeParallaxEffects();
-        initializeCardInteractions();
-        initializeStaggeredAnimations();
+        // Visual enhancements - improved user experience
+        initializeParallaxEffects();                 // Parallax scrolling effects
+        initializeCardInteractions();                // Enhanced card hover effects
+        initializeStaggeredAnimations();             // Staggered animation timing
         
-        // Form handling
-        initializeFormHandling();
+        // Form functionality - user interaction
+        initializeFormHandling();                    // Contact form validation and submission
         
-        // Accessibility
-        initializeKeyboardNavigation();
-        initializeFocusManagement();
+        // Slideshow functionality - announcements
+        initSlideshow();                            // Initialize announcement slideshow
         
-        // Performance
-        preloadResources();
+        // Accessibility features - better for all users
+        initializeKeyboardNavigation();              // Keyboard support
+        initializeFocusManagement();                 // Focus indicators
+        
+        // Performance optimizations
+        preloadResources();                          // Preload critical resources
         
         console.log('Application initialized successfully!');
         
@@ -657,129 +694,59 @@ function initializeApplication() {
     }
 }
 
-/**
- * Initialize typing effect after page load
- */
+// Initialize page load effects after everything is loaded
 function initializePageLoadEffects() {
-    initializeTypingEffect();
+    initializeTypingEffect();                        // Hero title typing animation
 }
 
-// ===========================================
-// EVENT LISTENERS
-// ===========================================
+/* ========================================
+EVENT LISTENERS - PAGE LOAD
+   ======================================== */
 
-// Initialize when DOM is ready
+// Initialize when DOM content is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApplication);
 } else {
-    initializeApplication();
+    initializeApplication();                         // DOM already ready
 }
 
-// Initialize page load effects after everything is loaded
+// Initialize page load effects when fully loaded
 window.addEventListener('load', initializePageLoadEffects);
 
-// Handle page visibility changes (performance optimization)
+// Handle page visibility changes for performance
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
-        // Page is hidden - pause non-essential animations
         console.log('Page hidden - optimizing performance');
+        stopAutoSlide();                             // Pause slideshow when page hidden
     } else {
-        // Page is visible - resume animations
         console.log('Page visible - resuming normal operation');
+        startAutoSlide();                            // Resume slideshow when page visible
     }
 });
 
-// ===========================================
-// ERROR HANDLING
-// ===========================================
+/* ========================================
+SLIDESHOW EVENT HANDLERS
+   ======================================== */
 
-// Global error handler
+// Pause slideshow on hover
+const slideshowContainer = document.querySelector('.slideshow-container');
+if (slideshowContainer) {
+    slideshowContainer.addEventListener('mouseenter', stopAutoSlide);    // Pause on hover
+    slideshowContainer.addEventListener('mouseleave', startAutoSlide);   // Resume when not hovering
+}
+
+/* ========================================
+ERROR HANDLING
+   ======================================== */
+
+// Global error handler for JavaScript errors
 window.addEventListener('error', function(e) {
     console.error('JavaScript Error:', e.error);
     // In production, you might want to send this to an error reporting service
 });
 
-// Unhandled promise rejection handler
+// Handle unhandled promise rejections
 window.addEventListener('unhandledrejection', function(e) {
     console.error('Unhandled Promise Rejection:', e.reason);
-    e.preventDefault(); // Prevent the default browser behavior
+    e.preventDefault();                              // Prevent default browser behavior
 });
-
-// Export functions for testing (if using modules)
-// export { initializeApplication, initializeMobileMenu, initializeScrollAnimations };
-
-let slideIndex = 1;
-        let slideInterval;
-
-        // Initialize slideshow
-        function initSlideshow() {
-            showSlide(slideIndex);
-            startAutoSlide();
-        }
-
-        // Start automatic sliding
-        function startAutoSlide() {
-            slideInterval = setInterval(() => {
-                changeSlide(1);
-            }, 3000); // Change slide every 3 seconds
-        }
-
-        // Stop automatic sliding
-        function stopAutoSlide() {
-            clearInterval(slideInterval);
-        }
-
-        // Restart automatic sliding
-        function restartAutoSlide() {
-            stopAutoSlide();
-            startAutoSlide();
-        }
-
-        // Change slide by n
-        function changeSlide(n) {
-            showSlide(slideIndex += n);
-            restartAutoSlide(); // Reset timer when manually changing slides
-        }
-
-        // Go to specific slide
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-            restartAutoSlide(); // Reset timer when clicking indicators
-        }
-
-        // Display slide
-        function showSlide(n) {
-            const slides = document.getElementsByClassName('slide');
-            const indicators = document.getElementsByClassName('indicator');
-            
-            // Wrap around if necessary
-            if (n > slides.length) {
-                slideIndex = 1;
-            }
-            if (n < 1) {
-                slideIndex = slides.length;
-            }
-            
-            // Hide all slides
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove('active');
-            }
-            
-            // Remove active class from all indicators
-            for (let i = 0; i < indicators.length; i++) {
-                indicators[i].classList.remove('active');
-            }
-            
-            // Show current slide and indicator
-            slides[slideIndex - 1].classList.add('active');
-            indicators[slideIndex - 1].classList.add('active');
-        }
-
-        // Pause on hover
-        const slideshowContainer = document.querySelector('.slideshow-container');
-        
-        slideshowContainer.addEventListener('mouseenter', stopAutoSlide);
-        slideshowContainer.addEventListener('mouseleave', startAutoSlide);
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initSlideshow);
