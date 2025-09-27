@@ -322,46 +322,77 @@ SECTION LAYOUT STYLES
 
 /* Light background for alternating sections */
 .bg-light {
-    background: #f8fafc;            /* Light gray background */
+    background: linear-gradient(135deg, #f8fafc, #ffffff); /* Subtle gradient */
 }
 
 /* Section title styling */
 .section-title {
-    font-size: 2.5rem;              /* Large title text */
+    font-size: 2.8rem;              /* Larger title text */
     text-align: center;             /* Center alignment */
     margin-bottom: 60px;            /* Space below title */
     color: #1e40af;                 /* Blue color */
     font-weight: 700;               /* Bold font */
+    position: relative;             /* For decorative elements */
+    letter-spacing: 0.5px;          /* Slight letter spacing */
+}
+
+/* Decorative underline for section titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #1e40af, #1a4d2e);
+    border-radius: 2px;
 }
 
 /* ========================================
 ANNOUNCEMENTS SECTION STYLES
    ======================================== */
 
-/* Announcements section with green gradient background */
+/* Announcements section with enhanced green gradient background */
 .announcements-section {
-    padding: 60px 0;                /* Section padding */
-    background: linear-gradient(135deg, #1a4d2e 0%, #1a4d2e 100%); /* Green gradient */
+    padding: 80px 0;                /* Increased section padding */
+    background: linear-gradient(135deg, #1a4d2e 0%, #10b981 100%); /* Enhanced green gradient */
+    position: relative;             /* For background effects */
+    overflow: hidden;               /* Hide overflow */
+}
+
+/* Background pattern overlay */
+.announcements-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="60" height="60" fill="url(%23dots)"/></svg>');
+    opacity: 0.5;
 }
 
 /* Announcements title */
 .announcements-title {
     text-align: center;             /* Center title */
-    font-size: 2.5rem;              /* Large font */
+    font-size: 2.8rem;              /* Larger font */
     color: white;                   /* White text */
-    margin-bottom: 40px;            /* Space below */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Text shadow for depth */
+    margin-bottom: 50px;            /* Increased space below */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3); /* Enhanced text shadow for depth */
+    position: relative;             /* Above background pattern */
+    z-index: 1;                     /* Above background */
+    font-weight: 700;               /* Bold font */
+    letter-spacing: 1px;            /* Letter spacing */
 }
 
 /* Slideshow container */
 .slideshow-container {
     position: relative;             /* For absolute positioning of controls */
-    max-width: 900px;               /* Maximum slideshow width */
+    max-width: 950px;               /* Slightly larger slideshow width */
     margin: 0 auto;                 /* Center horizontally */
     background: white;              /* White background */
-    border-radius: 20px;            /* Rounded corners */
+    border-radius: 25px;            /* More rounded corners */
     overflow: hidden;               /* Hide overflow */
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Large shadow */
+    box-shadow: 0 25px 80px rgba(0,0,0,0.4); /* Larger shadow */
+    z-index: 2;                     /* Above background */
 }
 
 /* Individual slide styling */
@@ -388,107 +419,127 @@ ANNOUNCEMENTS SECTION STYLES
 /* Slide image container */
 .slide-image {
     flex: 0 0 40%;                  /* Fixed 40% width, no grow/shrink */
-    min-height: 300px;              /* Minimum height */
+    min-height: 320px;              /* Increased minimum height */
     background: #f3f4f6;            /* Light gray fallback */
 }
 .slide-image img {
     width: 100%;                    /* Full container width */
     height: 100%;                   /* Full container height */
     object-fit: cover;              /* Crop to fit container */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.slide:hover .slide-image img {
+    transform: scale(1.05);         /* Slight zoom on hover */
 }
 
 /* Slide content area */
 .slide-content {
     flex: 1;                        /* Take remaining space */
-    padding: 40px;                  /* Internal padding */
+    padding: 45px;                  /* Increased internal padding */
     display: flex;                  /* Flex layout */
     flex-direction: column;         /* Stack content vertically */
     justify-content: center;        /* Center content vertically */
+    background: linear-gradient(135deg, #ffffff, #f8fafc); /* Subtle gradient */
 }
 
 /* Slide status badge */
 .slide-badge {
     display: inline-block;          /* Inline block for width control */
-    background: #1e40af;            /* Blue background */
+    background: linear-gradient(135deg, #1e40af, #3b82f6); /* Gradient background */
     color: white;                   /* White text */
-    padding: 6px 16px;              /* Badge padding */
-    border-radius: 20px;            /* Rounded badge */
-    font-size: 0.85rem;             /* Small font */
+    padding: 8px 18px;              /* Increased badge padding */
+    border-radius: 25px;            /* More rounded badge */
+    font-size: 0.9rem;              /* Slightly larger font */
     font-weight: 600;               /* Semi-bold */
-    margin-bottom: 15px;            /* Space below */
+    margin-bottom: 18px;            /* Increased space below */
     width: fit-content;             /* Only as wide as content */
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3); /* Badge shadow */
+    letter-spacing: 0.5px;          /* Letter spacing */
 }
 
 /* Slide title */
 .slide-content h3 {
-    font-size: 1.8rem;              /* Large heading */
+    font-size: 2rem;                /* Larger heading */
     color: #333;                    /* Dark gray */
-    margin-bottom: 15px;            /* Space below */
+    margin-bottom: 18px;            /* Increased space below */
     line-height: 1.3;               /* Tight line height */
+    font-weight: 700;               /* Bold font */
+    letter-spacing: 0.3px;          /* Slight letter spacing */
 }
 
 /* Slide description */
 .slide-content p {
     color: #666;                    /* Medium gray */
-    font-size: 1.1rem;              /* Slightly larger text */
-    line-height: 1.6;               /* Comfortable line height */
-    margin-bottom: 20px;            /* Space below */
+    font-size: 1.15rem;             /* Larger text */
+    line-height: 1.7;               /* More comfortable line height */
+    margin-bottom: 25px;            /* Increased space below */
 }
 
 /* Slide date */
 .slide-date {
     color: #999;                    /* Light gray */
-    font-size: 0.9rem;              /* Small font */
+    font-size: 0.95rem;             /* Slightly larger font */
     font-style: italic;             /* Italic text */
+    font-weight: 500;               /* Medium weight */
 }
 
-/* Navigation arrow buttons */
+/* Enhanced navigation arrow buttons */
 .slide-nav {
     position: absolute;             /* Position over slideshow */
     top: 50%;                       /* Vertical center */
     transform: translateY(-50%);    /* Adjust for button height */
-    background: rgba(255,255,255,0.9); /* Semi-transparent white */
-    color: #333;                    /* Dark text */
-    border: none;                   /* No border */
-    font-size: 24px;                /* Large arrow text */
-    padding: 15px 20px;             /* Button padding */
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95)); /* Gradient background */
+    color: #1e40af;                 /* Blue text */
+    border: 2px solid rgba(30, 64, 175, 0.2); /* Subtle border */
+    font-size: 28px;                /* Larger arrow text */
+    padding: 18px 22px;             /* Larger button padding */
     cursor: pointer;                /* Pointer cursor */
-    transition: all 0.3s ease;      /* Smooth hover effects */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover effects */
     z-index: 10;                    /* Above slide content */
     border-radius: 50%;             /* Circular buttons */
-    width: 50px; height: 50px;      /* Fixed dimensions */
+    width: 60px; height: 60px;      /* Larger fixed dimensions */
     display: flex;                  /* Flex for centering */
     align-items: center;            /* Center arrow vertically */
     justify-content: center;        /* Center arrow horizontally */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Button shadow */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Enhanced button shadow */
+    backdrop-filter: blur(10px);    /* Glass effect */
 }
-.slide-nav:hover {
-    background: white;              /* Solid white on hover */
-    transform: translateY(-50%) scale(1.1); /* Slightly larger on hover */
-}
-.slide-nav.prev { left: 20px; }    /* Position previous button */
-.slide-nav.next { right: 20px; }   /* Position next button */
 
-/* Slide indicator dots */
+.slide-nav:hover {
+    background: linear-gradient(135deg, white, #f8fafc); /* Solid gradient on hover */
+    transform: translateY(-50%) scale(1.15); /* Larger on hover */
+    box-shadow: 0 12px 35px rgba(30, 64, 175, 0.3); /* Blue shadow */
+    border-color: rgba(30, 64, 175, 0.4); /* More visible border */
+}
+
+.slide-nav.prev { left: 25px; }    /* Position previous button */
+.slide-nav.next { right: 25px; }   /* Position next button */
+
+/* Enhanced slide indicator dots */
 .slide-indicators {
     display: flex;                  /* Horizontal layout */
     justify-content: center;        /* Center indicators */
-    gap: 10px;                     /* Space between dots */
-    margin-top: 30px;              /* Space above indicators */
+    gap: 15px;                     /* Increased space between dots */
+    margin-top: 40px;              /* Increased space above indicators */
 }
 .indicator {
-    width: 12px; height: 12px;     /* Dot dimensions */
+    width: 14px; height: 14px;     /* Larger dot dimensions */
     border-radius: 50%;            /* Circular dots */
     background: rgba(255,255,255,0.4); /* Semi-transparent white */
     cursor: pointer;               /* Pointer cursor */
-    transition: all 0.3s ease;     /* Smooth transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transitions */
+    border: 2px solid rgba(255,255,255,0.6); /* Border for better visibility */
 }
 .indicator.active {
     background: white;             /* Solid white for active */
-    transform: scale(1.3);         /* Larger active indicator */
+    transform: scale(1.4);         /* Larger active indicator */
+    border-color: white;           /* Solid border */
+    box-shadow: 0 4px 15px rgba(255,255,255,0.4); /* White shadow */
 }
 .indicator:hover {
-    background: rgba(255,255,255,0.7); /* Lighter on hover */
+    background: rgba(255,255,255,0.8); /* Lighter on hover */
+    transform: scale(1.2);         /* Slightly larger on hover */
 }
 
 /* ========================================
@@ -498,27 +549,49 @@ ABOUT SECTION STYLES
 /* About section card grid */
 .about-grid {
     display: grid;                              /* CSS Grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 40px;                                  /* Space between cards */
-    margin-top: 60px;                           /* Space above grid */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns */
+    gap: 45px;                                  /* Increased space between cards */
+    margin-top: 80px;                           /* Increased space above grid */
 }
 
 /* Individual about cards */
 .about-card {
-    background: #fff;                           /* White background */
-    padding: 40px;                              /* Internal padding */
-    border-radius: 15px;                        /* Rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Card shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animations */
+    background: linear-gradient(135deg, #ffffff, #f8fafc); /* Subtle gradient background */
+    padding: 45px;                              /* Increased internal padding */
+    border-radius: 20px;                        /* More rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Enhanced card shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover animations */
+    border: 1px solid rgba(30, 64, 175, 0.08); /* Subtle border */
+    position: relative;                         /* For pseudo-elements */
+    overflow: hidden;                           /* Hide overflow */
 }
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #1e40af, #1a4d2e);
+}
+
 .about-card:hover {
-    transform: translateY(-5px);                /* Lift on hover */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Larger shadow on hover */
+    transform: translateY(-8px) scale(1.02);     /* Enhanced lift on hover */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); /* Larger shadow on hover */
+    border-color: rgba(30, 64, 175, 0.15);      /* More visible border */
 }
 .about-card h3 {
-    font-size: 1.5rem;                          /* Card title size */
-    margin-bottom: 15px;                        /* Space below title */
+    font-size: 1.6rem;                          /* Larger card title size */
+    margin-bottom: 18px;                        /* Increased space below title */
     color: #1a4d2e;                             /* Green color */
+    font-weight: 700;                           /* Bold font */
+    letter-spacing: 0.3px;                      /* Letter spacing */
+}
+
+.about-card p {
+    font-size: 1.05rem;                         /* Slightly larger text */
+    line-height: 1.7;                           /* Better line height */
+    color: #555;                                /* Slightly darker gray */
 }
 
 /* ========================================
@@ -528,34 +601,61 @@ PROGRAMS SECTION STYLES
 /* Programs grid layout */
 .programs-grid {
     display: grid;                              /* CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
-    gap: 40px;                                  /* Gap between cards */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Larger responsive columns */
+    gap: 45px;                                  /* Increased gap between cards */
+    margin-top: 80px;                           /* Increased top margin */
 }
 
 /* Program cards */
 .program-card {
-    background: #fff;                           /* White background */
-    padding: 40px;                              /* Internal padding */
-    border-radius: 15px;                        /* Rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Card shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+    background: linear-gradient(135deg, #ffffff, #f8fafc); /* Subtle gradient background */
+    padding: 45px;                              /* Increased internal padding */
+    border-radius: 20px;                        /* More rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Enhanced card shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover effects */
+    border: 1px solid rgba(26, 77, 46, 0.08);  /* Subtle green border */
+    position: relative;                         /* For pseudo-elements */
+    overflow: hidden;                           /* Hide overflow */
 }
+
+.program-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #1a4d2e, #10b981);
+}
+
 .program-card:hover {
-    transform: translateY(-5px);                /* Hover lift */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Hover shadow */
+    transform: translateY(-8px) scale(1.02);     /* Enhanced hover lift */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); /* Larger hover shadow */
+    border-color: rgba(26, 77, 46, 0.15);       /* More visible border */
 }
 .program-card h3 {
-    font-size: 1.5rem;                          /* Title size */
-    margin-bottom: 15px;                        /* Space below */
+    font-size: 1.6rem;                          /* Larger title size */
+    margin-bottom: 18px;                        /* Increased space below */
     color: #1a4d2e;                             /* Green color */
+    font-weight: 700;                           /* Bold font */
+    letter-spacing: 0.3px;                      /* Letter spacing */
 }
+
+.program-card p {
+    font-size: 1.05rem;                         /* Slightly larger text */
+    line-height: 1.7;                           /* Better line height */
+    margin-bottom: 25px;                        /* Increased bottom margin */
+    color: #555;                                /* Slightly darker gray */
+}
+
 .program-card ul {
-    margin-top: 20px;                           /* Space above list */
-    padding-left: 20px;                         /* List indentation */
+    margin-top: 25px;                           /* Increased space above list */
+    padding-left: 25px;                         /* Increased list indentation */
 }
 .program-card li {
-    margin-bottom: 8px;                         /* Space between list items */
+    margin-bottom: 10px;                        /* Increased space between list items */
     color: #666;                                /* Gray text */
+    font-size: 1rem;                            /* Standard font size */
+    line-height: 1.6;                           /* Better line height */
 }
 
 /* ========================================
@@ -565,42 +665,78 @@ FACULTY SECTION STYLES
 /* Faculty member grid */
 .faculty-grid {
     display: grid;                              /* CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-    gap: 40px;                                  /* Gap between cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 45px;                                  /* Increased gap between cards */
+    margin-top: 80px;                           /* Increased top margin */
 }
 
 /* Faculty profile cards */
 .faculty-card {
-    background: #fff;                           /* White background */
-    padding: 30px;                              /* Internal padding */
-    border-radius: 15px;                        /* Rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Card shadow */
+    background: linear-gradient(135deg, #ffffff, #f8fafc); /* Subtle gradient background */
+    padding: 40px;                              /* Internal padding */
+    border-radius: 20px;                        /* Rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Enhanced card shadow */
     text-align: center;                         /* Center-aligned content */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover effects */
+    border: 1px solid rgba(30, 64, 175, 0.08); /* Subtle border */
+    position: relative;                         /* For pseudo-elements */
+    overflow: hidden;                           /* Hide overflow */
 }
+
+.faculty-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #1e40af, #1a4d2e);
+}
+
 .faculty-card:hover {
-    transform: translateY(-5px);                /* Hover lift */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Hover shadow */
+    transform: translateY(-8px) scale(1.02);     /* Enhanced hover lift */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); /* Larger hover shadow */
+    border-color: rgba(30, 64, 175, 0.15);      /* More visible border */
 }
 
 /* Faculty profile images */
 .faculty-image {
-    width: 120px; height: 120px;               /* Fixed dimensions */
+    width: 130px; height: 130px;               /* Larger fixed dimensions */
     border-radius: 50%;                        /* Circular images */
     background: linear-gradient(45deg, #1e40af, #1a4d2e); /* Gradient fallback */
-    margin: 0 auto 20px;                       /* Center with bottom margin */
+    margin: 0 auto 25px;                       /* Center with increased bottom margin */
     object-fit: cover;                         /* Crop images to fit */
+    border: 4px solid rgba(30, 64, 175, 0.1); /* Subtle border */
+    transition: all 0.3s ease;                 /* Smooth transitions */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Image shadow */
 }
+
+.faculty-card:hover .faculty-image {
+    transform: scale(1.05);                     /* Slight zoom on card hover */
+    border-color: rgba(30, 64, 175, 0.3);      /* More visible border */
+    box-shadow: 0 12px 35px rgba(30, 64, 175, 0.2); /* Enhanced shadow */
+}
+
 .faculty-card h3 {
-    font-size: 1.3rem;                         /* Name font size */
-    margin-bottom: 5px;                        /* Space below name */
+    font-size: 1.4rem;                         /* Larger name font size */
+    margin-bottom: 8px;                        /* Space below name */
     color: #333;                               /* Dark gray */
+    font-weight: 700;                          /* Bold font */
+    letter-spacing: 0.3px;                     /* Letter spacing */
 }
 .faculty-card .title {
     color: #1a4d2e;                            /* Green for titles */
     font-weight: 600;                          /* Semi-bold */
-    margin-bottom: 15px;                       /* Space below title */
+    margin-bottom: 18px;                       /* Increased space below title */
+    font-size: 1.05rem;                        /* Slightly larger */
 }
+
+.faculty-card p:last-child {
+    color: #666;                               /* Gray for bio */
+    font-size: 1rem;                           /* Standard size */
+    line-height: 1.6;                          /* Better line height */
+    font-style: italic;                        /* Italic for quotes/bio */
+}
+
 
 /* ========================================
 RESEARCH/FACILITIES SECTION STYLES
@@ -609,38 +745,70 @@ RESEARCH/FACILITIES SECTION STYLES
 /* Research areas grid */
 .research-areas {
     display: grid;                              /* CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-    gap: 30px;                                  /* Gap between items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 40px;                                  /* Increased gap between items */
+    margin-top: 80px;                           /* Increased top margin */
 }
 
 /* Research/facility item cards */
 .research-item {
-    padding: 30px;                              /* Internal padding */
-    background: #fff;                           /* White background */
-    border-radius: 15px;                        /* Rounded corners */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Card shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+    padding: 40px;                              /* Increased internal padding */
+    background: linear-gradient(135deg, #ffffff, #f8fafc); /* Subtle gradient background */
+    border-radius: 20px;                        /* More rounded corners */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Enhanced card shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover effects */
+    border: 1px solid rgba(26, 77, 46, 0.08);  /* Subtle border */
+    position: relative;                         /* For pseudo-elements */
+    overflow: hidden;                           /* Hide overflow */
 }
+
+.research-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #1a4d2e, #10b981);
+}
+
 .research-item:hover {
-    transform: translateY(-3px);                /* Small hover lift */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Hover shadow */
+    transform: translateY(-6px) scale(1.02);    /* Enhanced small hover lift */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); /* Enhanced hover shadow */
+    border-color: rgba(26, 77, 46, 0.15);       /* More visible border */
 }
 .research-item h3 {
-    font-size: 1.3rem;                          /* Title size */
-    margin-bottom: 15px;                        /* Space below */
+    font-size: 1.4rem;                          /* Larger title size */
+    margin-bottom: 18px;                        /* Increased space below */
     color: #1a4d2e;                             /* Green color */
+    font-weight: 700;                           /* Bold font */
+    letter-spacing: 0.3px;                      /* Letter spacing */
+}
+
+.research-item p {
+    font-size: 1.05rem;                         /* Slightly larger text */
+    line-height: 1.7;                           /* Better line height */
+    color: #555;                                /* Slightly darker gray */
 }
 
 /* ========================================
 PHOTO GALLERY SECTION STYLES
    ======================================== */
 
-/* Photo showcase section with dark background */
+/* Photo showcase section with enhanced dark background */
 .photo-showcase {
-    padding: 120px 0;                           /* Large section padding */
-    background: linear-gradient(135deg, #1a4d2e, #1a4d2e); /* Green gradient */
+    padding: 140px 0;                           /* Increased section padding */
+    background: linear-gradient(135deg, #1a4d2e, #059669); /* Enhanced green gradient */
     position: relative;                         /* For background decoration */
     overflow: hidden;                           /* Hide overflow */
+}
+
+/* Enhanced background pattern */
+.photo-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><defs><pattern id="hexagons" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><polygon points="20,5 30,15 30,25 20,35 10,25 10,15" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="80" height="80" fill="url(%23hexagons)"/></svg>');
+    opacity: 0.6;
 }
 
 /* Gallery title override for white color */
@@ -655,6 +823,9 @@ PHOTO GALLERY SECTION STYLES
     text-align: center;                         /* Center alignment */
     color: white !important;                    /* White text */
     margin-left: auto; margin-right: auto;      /* Center element */
+    opacity: 0.9;                               /* Slightly transparent */
+    font-size: 1.2rem;                          /* Subtitle size */
+    margin-bottom: 60px;                        /* Space below */
 }
 
 /* Photo grid layout */
@@ -693,6 +864,20 @@ PHOTO GALLERY SECTION STYLES
 .photo-card:nth-child(4) {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23dc2626" width="400" height="300"/><rect x="50" y="50" width="300" height="200" rx="20" fill="%23ffffff" opacity="0.1"/><circle cx="200" cy="150" r="50" fill="%23fbbf24" opacity="0.8"/></svg>') center/cover;
+}
+
+/* Photo category badges */
+.photo-category {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e40af, #1a4d2e);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Photo overlay content */
@@ -740,35 +925,68 @@ CONTACT SECTION STYLES
 }
 
 /* Contact information styling */
+.contact-info h3 {
+    font-size: 1.8rem;                          /* Larger heading */
+    color: #1e40af;                             /* Blue color */
+    margin-bottom: 30px;                        /* Space below */
+    font-weight: 700;                           /* Bold font */
+}
+
 .contact-item {
     margin-bottom: 25px;                        /* Space between items */
 }
 .contact-item strong {
     color: #1e40af;                             /* Blue labels */
     display: block;                             /* Block display for labels */
-    margin-bottom: 5px;                         /* Space below labels */
+    margin-bottom: 8px;                         /* Space below labels */
+    font-size: 1.1rem;                          /* Larger label text */
+    font-weight: 600;                           /* Semi-bold */
+}
+
+.contact-item p {
+    color: #555;                                /* Dark gray text */
+    font-size: 1rem;                            /* Standard size */
+    line-height: 1.6;                           /* Better line height */
+    margin: 0;                                  /* No margin */
 }
 
 /* Contact form styling */
+.contact-form h3 {
+    font-size: 1.8rem;                          /* Larger heading */
+    color: #1e40af;                             /* Blue color */
+    margin-bottom: 30px;                        /* Space below */
+    font-weight: 700;                           /* Bold font */
+}
+
 .contact-form form {
     display: flex;                              /* Flex layout */
     flex-direction: column;                     /* Stack form elements */
-    gap: 20px;                                  /* Space between elements */
+    gap: 25px;                                  /* Increased space between elements */
 }
+
 .contact-form input,
 .contact-form textarea {
-    padding: 15px;                              /* Internal padding */
+    padding: 18px;                              /* Increased internal padding */
     border: 2px solid #e5e7eb;                 /* Light border */
-    border-radius: 10px;                        /* Rounded corners */
+    border-radius: 12px;                        /* More rounded corners */
     font-size: 1rem;                            /* Font size */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus effects */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth focus effects */
     font-family: inherit;                       /* Inherit body font */
+    background: #fafafa;                        /* Light background */
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;                              /* Remove default outline */
     border-color: #1e40af;                      /* Blue focus border */
-    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); /* Blue focus shadow */
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.15); /* Enhanced blue focus shadow */
+    background: white;                          /* White background on focus */
+    transform: translateY(-2px);                /* Slight lift on focus */
+}
+
+.contact-form textarea {
+    resize: vertical;                           /* Only vertical resize */
+    min-height: 120px;                          /* Minimum height */
 }
 
 /* ========================================
@@ -776,10 +994,27 @@ FOOTER STYLES
    ======================================== */
 
 .footer {
-    background: #1a4d2e;                        /* Green background */
+    background: linear-gradient(135deg, #1a4d2e, #059669); /* Enhanced green gradient */
     color: #fff;                                /* White text */
     text-align: center;                         /* Center alignment */
-    padding: 40px 0;                            /* Vertical padding */
+    padding: 50px 0;                            /* Increased vertical padding */
+    position: relative;                         /* For background effects */
+    overflow: hidden;                           /* Hide overflow */
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="footer-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="60" height="60" fill="url(%23footer-pattern)"/></svg>');
+    opacity: 0.3;
+}
+
+.footer p {
+    position: relative;                         /* Above background pattern */
+    z-index: 1;                                 /* Above background */
+    font-size: 1rem;                            /* Standard size */
+    opacity: 0.9;                               /* Slightly transparent */
 }
 
 /* ========================================
@@ -809,7 +1044,7 @@ ANIMATION CLASSES
 .animate-text {
     opacity: 0;                                 /* Start hidden */
     transform: translateY(30px);                /* Start shifted down */
-    transition: all 0.6s ease;                 /* Smooth transition */
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Enhanced smooth transition */
 }
 .animate-text.visible {
     opacity: 1;                                 /* Show when visible */
@@ -822,8 +1057,8 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
 
 /* Tablet and Mobile Styles (768px and below) */
 @media (max-width: 768px) {
-    /* Show hamburger menu on mobile */
-    .menu-toggle { display: flex; }
+    /* Show mobile menu button on mobile */
+    .mobile-menu-button { display: flex; }
     
     /* Mobile navigation overlay */
     .nav {
@@ -831,11 +1066,12 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
         top: 100%;                             /* Below header */
         left: 0; right: 0;                     /* Full width */
         background: rgba(255, 255, 255, 0.98); /* Semi-transparent background */
-        backdrop-filter: blur(10px);           /* Blur background */
+        backdrop-filter: blur(15px);           /* Enhanced blur background */
         transform: translateY(-100%);          /* Hidden above screen */
         opacity: 0; visibility: hidden;        /* Hidden by default */
-        transition: all 0.3s ease;            /* Smooth show/hide */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Shadow */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth show/hide */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+        border-radius: 0 0 20px 20px;          /* Rounded bottom corners */
     }
     
     /* Show mobile menu when active */
@@ -847,8 +1083,34 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
     /* Mobile menu layout */
     .nav ul {
         flex-direction: column;                /* Stack menu items */
-        padding: 20px;                         /* Internal padding */
-        gap: 15px;                            /* Space between items */
+        padding: 30px 25px;                    /* Increased internal padding */
+        gap: 20px;                            /* More space between items */
+    }
+    
+    /* Enhanced mobile navigation links - button style */
+    .nav-link {
+        background: linear-gradient(135deg, #ffffff, #f8fafc); /* Button background */
+        color: #1e40af;                     /* Blue text */
+        border: 2px solid rgba(30, 64, 175, 0.1); /* Light border */
+        border-radius: 25px;                /* Rounded like buttons */
+        padding: 15px 20px;                 /* Larger padding for mobile */
+        font-size: 1rem;                    /* Standard mobile text */
+        font-weight: 600;                   /* Semi-bold */
+        transition: all 0.3s ease;          /* Smooth transitions */
+        display: block;                     /* Full width clickable */
+        text-align: center;                 /* Center text */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Button shadow */
+        margin: 0 auto;                     /* Center the buttons */
+        max-width: 200px;                   /* Limit width */
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: linear-gradient(135deg, #1e40af, #3b82f6); /* Blue gradient */
+        color: white;                       /* White text */
+        transform: translateY(-2px);        /* Slight lift effect */
+        box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3); /* Enhanced shadow */
+        border-color: rgba(30, 64, 175, 0.3); /* More visible border */
     }
     
     /* Smaller hero title on mobile */
@@ -858,10 +1120,14 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
     .hero-buttons {
         flex-direction: column;                /* Stack buttons */
         align-items: center;                   /* Center buttons */
+        gap: 15px;                            /* Space between buttons */
     }
     
     /* Smaller section titles */
-    .section-title { font-size: 2rem; }
+    .section-title { 
+        font-size: 2.2rem;                     /* Larger mobile titles */
+        margin-bottom: 50px;                   /* Adjusted spacing */
+    }
     
     /* Single column layout for contact */
     .contact-grid {
@@ -871,17 +1137,17 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
     
     /* Mobile slideshow adjustments */
     .slide { flex-direction: column; }         /* Stack slide content */
-    .slide-image { min-height: 200px; }       /* Smaller image height */
-    .slide-content { padding: 25px; }         /* Less padding */
-    .slide-content h3 { font-size: 1.4rem; }  /* Smaller titles */
+    .slide-image { min-height: 250px; }       /* Better mobile image height */
+    .slide-content { padding: 30px; }         /* Better mobile padding */
+    .slide-content h3 { font-size: 1.5rem; }  /* Better mobile titles */
     
-    /* Smaller navigation arrows */
+    /* Enhanced mobile navigation arrows */
     .slide-nav {
-        width: 40px; height: 40px;            /* Smaller dimensions */
-        font-size: 18px;                      /* Smaller arrows */
+        width: 45px; height: 45px;            /* Better mobile dimensions */
+        font-size: 20px;                      /* Better mobile arrows */
     }
-    .slide-nav.prev { left: 10px; }          /* Closer to edge */
-    .slide-nav.next { right: 10px; }         /* Closer to edge */
+    .slide-nav.prev { left: 15px; }          /* Better mobile positioning */
+    .slide-nav.next { right: 15px; }         /* Better mobile positioning */
 }
 
 /* Small Mobile Styles (480px and below) */
@@ -893,25 +1159,38 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
     .about-grid,
     .programs-grid,
     .faculty-grid,
-    .research-areas {
+    .research-areas,
+    .photo-grid {
         grid-template-columns: 1fr;           /* Single column only */
+        gap: 25px;                            /* Reduced gaps */
     }
     
     /* Smaller logos on mobile */
-    .logos { gap: 10px; }                     /* Less space between logos */
-    .logo { width: 50px; height: 50px; }     /* Smaller logo size */
+    .logos { gap: 12px; }                     /* Space between logos */
+    .logo { width: 55px; height: 55px; }     /* Better mobile logo size */
     
     /* Reduce section padding on mobile */
-    .section { padding: 60px 0; }             /* Less vertical padding */
+    .section { padding: 70px 0; }             /* Better mobile vertical padding */
     
     /* Smaller card padding */
     .about-card,
-    .program-card { padding: 25px; }         /* Less internal padding */
+    .program-card,
+    .faculty-card,
+    .research-item { 
+        padding: 30px 25px;                   /* Better mobile internal padding */
+    }
     
     /* Adjust contact grid for small screens */
     .contact-grid {
         grid-template-columns: 1fr;           /* Single column */
-        gap: 30px;                            /* Smaller gap */
+        gap: 35px;                            /* Better mobile gap */
+    }
+    
+    /* Better mobile form inputs */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 16px;                        /* Better mobile padding */
+        font-size: 16px;                      /* Prevent zoom on iOS */
     }
 }
 
@@ -919,13 +1198,18 @@ RESPONSIVE DESIGN - TABLET AND MOBILE
 ACCESSIBILITY AND FOCUS STYLES
    ======================================== */
 
-/* Focus styles for keyboard navigation */
+/* Enhanced focus styles for keyboard navigation */
 button:focus,
 input:focus,
 textarea:focus,
 a:focus {
-    outline: 2px solid #1e40af;               /* Blue focus outline */
-    outline-offset: 2px;                      /* Space around outline */
+    outline: 3px solid #1e40af;               /* Enhanced blue focus outline */
+    outline-offset: 3px;                      /* More space around outline */
+}
+
+.nav-link:focus {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(26, 77, 46, 0.15));
+    transform: translateY(-1px);              /* Slight lift on focus */
 }
 
 /* Reduce motion for users who prefer it */
@@ -938,4 +1222,29 @@ a:focus {
         transition-duration: 0.01ms !important;     /* Very short transitions */
         scroll-behavior: auto !important;           /* No smooth scroll */
     }
+    
+    /* Disable transforms for reduced motion */
+    .nav-link:hover,
+    .btn:hover,
+    .photo-card:hover,
+    .about-card:hover,
+    .program-card:hover,
+    .faculty-card:hover,
+    .research-item:hover {
+        transform: none !important;
+    }
+}
+
+/* Active navigation link styling */
+.nav-link.active {
+    background: linear-gradient(135deg, #1e40af, #3b82f6); /* Blue gradient for active */
+    color: white;                       /* White text for active */
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4); /* Stronger shadow for active */
+    transform: translateY(-2px);        /* Slight lift for active */
+}
+
+.nav-link.active:hover {
+    background: linear-gradient(135deg, #1e40af, #2563eb); /* Slightly different hover for active */
+    transform: translateY(-4px);        /* More lift on hover when active */
+    color: white;                       /* Keep white text */
 }
